@@ -2,163 +2,61 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4303d73b-d6db-424e-8c6f-e8057b350585" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.testing" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/bookbook.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/islam_fakhry.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Author.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Book.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Comment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckForMaintenanceMode.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Language.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Reaction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Report.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Review.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/artisan" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/cache/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/broadcasting.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/cache.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/hashing.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/logging.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/queue.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/AuthorFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/BookFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/CommentFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/LanguageFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/ReactionFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/ReportFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/ReviewFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_04_10_222816_create_books_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_04_10_231038_create_languages_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_04_10_231423_create_reviews_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_04_13_195612_create_reports_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_04_13_200817_create_comments_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_04_15_124706_create_notifications_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_04_15_194116_create_reactions_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_04_16_002808_create_authors_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_04_16_002856_create_author_book_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_04_16_003925_create_followers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_04_16_145609_create_languageables_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laradock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/other/Capture.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/other/books app.xmind" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/other/languages_list.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/nucleo-outline.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/nucleo-outline.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/nucleo-outline.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/nucleo-outline.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/nucleo-license.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/nucleo-outline.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/nucleo-outline.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/nucleo-outline.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/nucleo-outline.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/pagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/passwords.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/book/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/console.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/cache/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/testing/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/views/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/logs/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/CreatesApplication.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Database/AuthorTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Database/BookTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Database/CommentTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Database/LanguageTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Database/ReactionTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Database/ReportTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Database/ReviewTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Database/UserTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/DatabaseTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/book.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/man.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/SettingsOption.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/SettingsOptionItem.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/master.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/author/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/home2.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/review/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reviewer/profile.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/notifications.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/profile.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/search.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/settings.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/bookbook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bookbook.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/other/books app.xmind" beforeDir="false" afterPath="$PROJECT_DIR$/other/books app.xmind" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/book/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Database/AuthorTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Integration/AuthorTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Database/BookTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Integration/BookTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Database/CommentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Integration/CommentTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Database/LanguageTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Integration/LanguageTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Database/ReactionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Integration/ReactionTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Database/ReportTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Integration/ReportTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Database/ReviewTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Integration/ReviewTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Database/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Integration/UserTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/DatabaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Integration/DatabaseTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -169,194 +67,66 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/tests/Unit/Database/BookTest.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="219">
-                    <caret line="43" selection-start-line="43" selection-end-line="44" />
-                    <folding>
-                      <element signature="e#39#54#0#PHP" expanded="true" />
-                      <element signature="e#2002#2957#0#PHP" />
-                      <element signature="e#2980#3968#0#PHP" />
-                      <element signature="e#3991#5102#0#PHP" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/tests/Unit/Database/CommentTest.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-16">
-                    <caret line="175" column="28" lean-forward="true" selection-start-line="175" selection-start-column="28" selection-end-line="175" selection-end-column="28" />
-                    <folding>
-                      <element signature="e#39#55#0#PHP" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/tests/Unit/Database/ReviewTest.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-5">
-                    <caret line="37" column="10" lean-forward="true" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
-                    <folding>
-                      <element signature="e#39#52#0#PHP" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/app/Report.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="85">
-                    <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/app/User.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="222">
-                    <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/app/Review.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="556">
-                    <caret line="54" selection-start-line="54" selection-end-line="54" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_16_145609_create_languageables_table.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="323">
-                    <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_10_231038_create_languages_table.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="306">
-                    <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-                    <folding>
-                      <element signature="e#7#45#0#PHP" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/app/Language.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="374">
-                    <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Unit/Database/LanguageTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="58" column="32" lean-forward="true" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-              <folding>
-                <element signature="e#39#52#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+            <state relative-caret-position="454">
+              <caret line="25" column="59" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
+              <caret line="32" column="59" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
+              <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
+              <caret line="46" column="59" selection-start-line="46" selection-start-column="59" selection-end-line="46" selection-end-column="59" />
+              <caret line="52" column="59" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
+              <caret line="58" column="59" selection-start-line="58" selection-start-column="59" selection-end-line="58" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Unit/Database/ReportTest.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/review/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="94" column="21" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
-              <folding>
-                <element signature="e#39#52#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="242">
+              <caret line="124" column="58" selection-start-line="124" selection-start-column="54" selection-end-line="124" selection-end-column="58" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Unit/Database/UserTest.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/home2.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="124" column="41" selection-start-line="124" selection-start-column="41" selection-end-line="124" selection-end-column="41" />
-              <folding>
-                <element signature="e#39#52#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="221">
+              <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_13_195612_create_reports_table.php">
+        <entry file="file://$PROJECT_DIR$/tests/Browser/Pages/HomePage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
+            <state relative-caret-position="-419" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Browser/Pages/Page.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Browser/ExampleTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="19" column="40" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Unit/Database/ReactionTest.php">
+        <entry file="file://$PROJECT_DIR$/tests/Integration/UserTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="108" column="5" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="108" selection-end-column="5" />
-              <folding>
-                <element signature="e#39#52#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_13_200817_create_comments_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="21" column="50" lean-forward="true" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
+            <state relative-caret-position="4052">
+              <caret line="367" column="38" selection-start-line="367" selection-start-column="38" selection-end-line="367" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -366,6 +136,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="blade" />
       </list>
     </option>
@@ -373,52 +144,27 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>debounce</find>
+      <find>view</find>
+      <find>profi</find>
+      <find>sh</find>
+      <find>notif</find>
     </findStrings>
+  </component>
+  <component name="FrameworkCommandLineHistory">
+    <commandsHistory>
+      <command text="pa ide-helper:generate " />
+      <command text="pa serve" />
+    </commandsHistory>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HierarchyBrowserManager">
+    <option name="SORT_ALPHABETICALLY" value="true" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
-        <option value="$PROJECT_DIR$/resources/views/book/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/sass/_variables.scss" />
-        <option value="$PROJECT_DIR$/resources/js/bootstrap.js" />
-        <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_15_225905_create_roles_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_15_231650_create_authors_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_15_194116_create_reactions_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_16_002856_create_author_book_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_16_002808_create_authors_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_16_003925_create_followers_table.php" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_13_200500_create_languageable.php" />
-        <option value="$PROJECT_DIR$/phpunit.xml" />
-        <option value="$PROJECT_DIR$/.env.testing" />
-        <option value="$PROJECT_DIR$/config/database.php" />
-        <option value="$PROJECT_DIR$/app/Language.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/Database/DatabaseTest.php" />
-        <option value="$PROJECT_DIR$/database/factories/AuthorFactory.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_10_231038_create_languages_table.php" />
-        <option value="$PROJECT_DIR$/database/factories/LanguageFactory.php" />
-        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/database/factories/CommentFactory.php" />
-        <option value="$PROJECT_DIR$/database/factories/ReactionFactory.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_13_200817_create_comments_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_16_145609_create_languageables_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_10_231423_create_reviews_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_10_222816_create_books_table.php" />
-        <option value="$PROJECT_DIR$/database/factories/ReviewFactory.php" />
-        <option value="$PROJECT_DIR$/database/factories/BookFactory.php" />
-        <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/DatabaseTest.php" />
-        <option value="$PROJECT_DIR$/app/Author.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/Database/AuthorTest.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/Database/BookTest.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/Database/ReviewTest.php" />
-        <option value="$PROJECT_DIR$/app/Comment.php" />
         <option value="$PROJECT_DIR$/app/Review.php" />
         <option value="$PROJECT_DIR$/app/Book.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Database/CommentTest.php" />
@@ -428,10 +174,48 @@
         <option value="$PROJECT_DIR$/database/factories/ReportFactory.php" />
         <option value="$PROJECT_DIR$/app/Report.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Database/ReportTest.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/Database/UserTest.php" />
-        <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Database/LanguageTest.php" />
+        <option value="$PROJECT_DIR$/config/services.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
+        <option value="$PROJECT_DIR$/webpack.mix.js" />
+        <option value="$PROJECT_DIR$/resources/js/master.js" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
+        <option value="$PROJECT_DIR$/resources/sass/_variables.scss" />
+        <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/search.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/bootstrap.js" />
+        <option value="$PROJECT_DIR$/resources/views/profile.blade.php" />
+        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
+        <option value="$PROJECT_DIR$/resources/views/settings/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/user/profile.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/user/notifications.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/reviewer/profile.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/book/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/author/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/SettingsItem.vue" />
+        <option value="$PROJECT_DIR$/resources/js/app.js" />
+        <option value="$PROJECT_DIR$/resources/js/components/SettingsOptionItem.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/SettingsOption.vue" />
+        <option value="$PROJECT_DIR$/resources/views/user/settings.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
+        <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
+        <option value="$PROJECT_DIR$/tests/Unit/Database/UserTest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/tests/Integration/DatabaseTest.php" />
+        <option value="$PROJECT_DIR$/phpunit.xml" />
+        <option value="$PROJECT_DIR$/tests/Integration/ExampleTest.php" />
+        <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/tests/Integration/UserTest.php" />
+        <option value="$PROJECT_DIR$/resources/views/review/show.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/home2.blade.php" />
+        <option value="$PROJECT_DIR$/tests/Browser/ExampleTest.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
       </list>
     </option>
   </component>
@@ -519,13 +303,30 @@
       <path value="$PROJECT_DIR$/vendor/bin" />
       <path value="$PROJECT_DIR$/vendor/cviebrock/eloquent-sluggable" />
       <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
+      <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/laravel/dusk" />
+      <path value="$PROJECT_DIR$/vendor/facebook/webdriver" />
+      <path value="$PROJECT_DIR$/vendor/moontoast/math" />
+      <path value="$PROJECT_DIR$/vendor/laravel/telescope" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="1912" />
+    <option name="y" value="-8" />
+    <option name="width" value="1296" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -533,6 +334,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -540,61 +342,16 @@
               <item name="bookbook" type="b2602c69:ProjectViewProjectNode" />
               <item name="bookbook" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="bookbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bookbook" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bookbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bookbook" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bookbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bookbook" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bookbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bookbook" type="462c0819:PsiDirectoryNode" />
-              <item name="other" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bookbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bookbook" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bookbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bookbook" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="Feature" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bookbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bookbook" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="Unit" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bookbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bookbook" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="Unit" type="462c0819:PsiDirectoryNode" />
-              <item name="Database" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/vendor/bin" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -602,12 +359,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\project\xamp\htdocs\bookbook" />
-      <recent name="E:\project\xamp\htdocs\bookbook\other" />
-      <recent name="E:\project\xamp\htdocs\bookbook\resources\sass" />
-      <recent name="E:\project\xamp\htdocs\bookbook\resources\fonts" />
+      <recent name="E:\project\xamp\htdocs\bookbook\resources\views" />
+      <recent name="E:\project\xamp\htdocs\bookbook\resources\js\components" />
+      <recent name="E:\project\xamp\htdocs\bookbook\resources\views\settings" />
+      <recent name="E:\project\xamp\htdocs\bookbook\public\js" />
+      <recent name="E:\project\xamp\htdocs\bookbook\public\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\project\xamp\htdocs\bookbook\tests\Integration\" />
+      <recent name="E:\project\xamp\htdocs\bookbook\resources\views\user" />
+      <recent name="E:\project\xamp\htdocs\bookbook\other" />
+      <recent name="E:\project\xamp\htdocs\bookbook\public\img" />
       <recent name="E:\project\xamp\htdocs\bookbook\resources\js\plugins" />
     </key>
   </component>
@@ -623,9 +385,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.DatabaseTest">
+  <component name="RunManager" selected="PHPUnit.phpunit.xml">
     <configuration name="DatabaseTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\DatabaseTest" file="$PROJECT_DIR$/tests/Unit/DatabaseTest.php" scope="Class" />
+      <TestRunner class="Tests\Unit\DatabaseTest" file="$PROJECT_DIR$/tests/Integration/DatabaseTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -636,11 +398,6 @@
       <item itemvalue="PHPUnit.phpunit.xml" />
       <item itemvalue="PHPUnit.DatabaseTest" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="PHPUnit.DatabaseTest" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -659,7 +416,22 @@
       <workItem from="1555253321094" duration="593000" />
       <workItem from="1555324793068" duration="14224000" />
       <workItem from="1555401469482" duration="18659000" />
-      <workItem from="1555492587538" duration="39604000" />
+      <workItem from="1555492587538" duration="44577000" />
+      <workItem from="1555596234872" duration="3511000" />
+      <workItem from="1555669828039" duration="1180000" />
+      <workItem from="1555754508891" duration="15679000" />
+      <workItem from="1555856025817" duration="7044000" />
+      <workItem from="1555870920111" duration="13932000" />
+      <workItem from="1555930681028" duration="9251000" />
+      <workItem from="1555971680711" duration="2201000" />
+      <workItem from="1556009952615" duration="18422000" />
+      <workItem from="1556096539166" duration="9990000" />
+      <workItem from="1556122431309" duration="14226000" />
+      <workItem from="1556187694846" duration="9044000" />
+      <workItem from="1556216058923" duration="2021000" />
+      <workItem from="1556263709133" duration="11582000" />
+      <workItem from="1556360200215" duration="14772000" />
+      <workItem from="1556443188089" duration="10760000" />
     </task>
     <servers />
   </component>
@@ -672,7 +444,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97187000" />
+    <option name="totallyTimeSpent" value="246564000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -684,15 +456,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="1912" y="-8" width="1296" height="1000" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.43087247" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.18122977" />
       <window_info id="Structure" order="1" sideWeight="0.50212765" side_tool="true" weight="0.43087247" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -701,382 +472,384 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.33427763" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.33427763" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" visible="true" weight="0.39331028" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="12" weight="0.32756633" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24916202" />
       <window_info anchor="right" id="Database" order="3" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.35506243" />
+      <window_info id="Structure" order="1" sideWeight="0.50212765" side_tool="true" weight="0.43087247" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32983682" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.33427763" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" weight="0.39943343" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="12" weight="0.32756633" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24916202" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_16_003925_create_followers_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_16_145544_create_languageables_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_13_200500_create_languageable.php" />
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="12" column="33" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpunit.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="31" column="51" lean-forward="true" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/TestCase.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/CreatesApplication.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/ExampleTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/ExampleTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env.testing">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_15_124706_create_notifications_table.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="61" column="10" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Database/DatabaseTest.php" />
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-565" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_15_194116_create_reactions_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_16_002808_create_authors_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/other/languages_list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="187" selection-end-column="2" />
-          <folding>
-            <element signature="e#16#4682#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/AuthorFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/CommentFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/ReactionFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/LanguageFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="197" lean-forward="true" selection-start-line="197" selection-end-line="197" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_10_231423_create_reviews_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/DatabaseTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-          <folding>
-            <element signature="e#30#43#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_10_222816_create_books_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/ReviewFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#9#22#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/BookFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-          <folding>
-            <element signature="e#7#20#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Author.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Database/AuthorTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="73" column="52" selection-start-line="73" selection-start-column="52" selection-end-line="73" selection-end-column="52" />
-          <caret line="86" column="40" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="40" />
-          <folding>
-            <element signature="e#39#54#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_13_200817_create_comments_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="50" lean-forward="true" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Book.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="22" column="17" lean-forward="true" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+        <state relative-caret-position="339">
+          <caret line="52" column="28" lean-forward="true" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
           <folding>
             <element signature="e#22#64#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="41" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Review.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="102">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Database/CommentTest.php">
+    <entry file="file://$PROJECT_DIR$/resources/js/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16">
-          <caret line="175" column="28" lean-forward="true" selection-start-line="175" selection-start-column="28" selection-end-line="175" selection-end-column="28" />
-          <folding>
-            <element signature="e#39#55#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Database/BookTest.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/user/search.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="43" selection-start-line="43" selection-end-line="44" />
-          <folding>
-            <element signature="e#39#54#0#PHP" expanded="true" />
-            <element signature="e#2002#2957#0#PHP" />
-            <element signature="e#2980#3968#0#PHP" />
-            <element signature="e#3991#5102#0#PHP" />
-          </folding>
+        <state relative-caret-position="612">
+          <caret line="36" column="104" selection-start-line="36" selection-start-column="104" selection-end-line="36" selection-end-column="105" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Database/ReactionTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="108" column="5" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="108" selection-end-column="5" />
-          <folding>
-            <element signature="e#39#52#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Reaction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_13_195612_create_reports_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/ReportFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Database/ReportTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="94" column="21" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
-          <folding>
-            <element signature="e#39#52#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Report.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Database/UserTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="124" column="41" selection-start-line="124" selection-start-column="41" selection-end-line="124" selection-end-column="41" />
-          <folding>
-            <element signature="e#39#52#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_16_145609_create_languageables_table.php">
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/HigherOrderTapProxy.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_10_231038_create_languages_table.php">
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="1119" column="38" selection-start-line="1119" selection-start-column="38" selection-end-line="1119" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasRelationships.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="719" column="16" lean-forward="true" selection-start-line="719" selection-start-column="16" selection-end-line="719" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/fontawesome-all.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16407" column="14" lean-forward="true" selection-start-line="16407" selection-start-column="14" selection-end-line="16407" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/other/home2.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/scss/mixins/_breakpoints.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/settings/show2.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2074">
+          <caret line="122" selection-start-line="122" selection-end-line="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/user/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="58" column="36" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
+          <folding>
+            <element signature="e#2281#4435#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/book/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="128" column="23" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="23" />
+          <folding>
+            <element signature="e#3570#5430#0#HTML" />
+            <element signature="e#3620#5407#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/author/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-952">
+          <caret line="86" column="24" lean-forward="true" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="67" column="53" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/user/notifications.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/reviewer/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="112" selection-start-line="112" selection-end-line="113" />
+          <caret line="77" selection-start-line="77" selection-end-line="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/SettingsOptionItem.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/SettingsOption.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="82" selection-start-line="5" selection-start-column="82" selection-end-line="5" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/user/settings.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="43" column="66" selection-start-line="43" selection-start-column="66" selection-end-line="43" selection-end-column="66" />
+          <caret line="44" column="66" selection-start-line="44" selection-start-column="66" selection-end-line="44" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="32" column="4" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="40" selection-end-column="5" />
+          <folding>
+            <element signature="e#45#81#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Integration/LanguageTest.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/CreatesApplication.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpunit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Integration/ReactionTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
           <folding>
-            <element signature="e#7#45#0#PHP" expanded="true" />
+            <element signature="e#46#59#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Integration/ExampleTest.php" />
+    <entry file="file://$PROJECT_DIR$/tests/Feature/ExampleTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding>
+            <element signature="e#33#52#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Integration/DatabaseTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#38#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_10_231423_create_reviews_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Database/ReviewTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="37" column="10" lean-forward="true" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+        <state relative-caret-position="1411">
+          <caret line="85" column="43" selection-start-line="85" selection-start-column="43" selection-end-line="85" selection-end-column="43" />
           <folding>
-            <element signature="e#39#52#0#PHP" expanded="true" />
+            <element signature="e#23#63#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Language.php">
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="497">
+          <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Database/LanguageTest.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/review/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="58" column="32" lean-forward="true" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-          <folding>
-            <element signature="e#39#52#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="242">
+          <caret line="124" column="58" selection-start-line="124" selection-start-column="54" selection-end-line="124" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/node_modules/admin-lte/plugins/chart.js/docs/gitbook/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        <state relative-caret-position="136">
+          <caret line="8" column="3411" selection-start-line="8" selection-start-column="3411" selection-end-line="8" selection-end-column="3411" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home2.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/DuskTestCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-169">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Browser/Pages/HomePage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-419" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Browser/Pages/Page.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Browser/console/Tests_Browser_ExampleTest_testBasicExample-0.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Browser/screenshots/failure-Tests_Browser_ExampleTest_testBasicExample-0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Browser/ExampleTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Integration/UserTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4052">
+          <caret line="367" column="38" selection-start-line="367" selection-start-column="38" selection-end-line="367" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="25" column="59" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
+          <caret line="32" column="59" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
+          <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
+          <caret line="46" column="59" selection-start-line="46" selection-start-column="59" selection-end-line="46" selection-end-column="59" />
+          <caret line="52" column="59" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
+          <caret line="58" column="59" selection-start-line="58" selection-start-column="59" selection-end-line="58" selection-end-column="59" />
         </state>
       </provider>
     </entry>

@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','provider_id',
     ];
 
     /**
@@ -78,6 +79,11 @@ class User extends Authenticatable
     public function followings()
     {
         return $this->belongsToMany(User::class, 'followers', 'follower_id', 'followed_id')->withTimestamps();
+    }
+    public function scopeFeed(){
+        $userIds = $this->followings()->pluck('followed_id');
+//        $userIds[] = $this->{'id'};
+        return Review::whereIn('reviewer_id', $userIds)->latest();
     }
 
     public function delete()

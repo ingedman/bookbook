@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Database;
+namespace Tests\Integration\Database;
 
 use App\Book;
 use App\Review;
@@ -8,7 +8,7 @@ use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\Unit\DatabaseTest;
+use Tests\Integration\DatabaseTest;
 
 class UserTest extends DatabaseTest
 {
@@ -26,17 +26,17 @@ class UserTest extends DatabaseTest
         $user = factory(User::class)->create([
             'name' => 'Eslam Fakhry'
         ]);
-        factory(\App\Review::class)->create([
+        factory(Review::class)->create([
             'reviewer_id' => $user->id,
             'book_id' => 1,
             'title' => 'Why 1984 is so great'
         ]);
-        factory(\App\Review::class)->create([
+        factory(Review::class)->create([
             'reviewer_id' => $user->id,
             'book_id' => 2,
             'title' => 'What I hated about dream of rabbit'
         ]);
-        factory(\App\Review::class)->create();
+        factory(Review::class)->create();
         $retrievedUser = User::find($user->id);
         $this->assertCount(
             2,
@@ -286,6 +286,88 @@ class UserTest extends DatabaseTest
             'the followed count did not match');
 
 
+
+
+
+
+    }
+
+    /** @test */
+    public function can_retrieve_photo_of_user()
+    {
+        $user = factory(User::class)->create([
+            'photo' => 'http://path/to/photo.png'
+        ]);
+
+        $retrievedUser = User::find($user->id);
+        $this->assertEquals(
+            'http://path/to/photo.png',
+            $retrievedUser->photo,
+            'photo path did not match'
+        );
+
+
+    }
+    /** @test */
+    public function can_retrieve_bio_of_user()
+    {
+        $user = factory(User::class)->create([
+            'bio' => 'reader of about three thousand books'
+        ]);
+
+        $retrievedUser = User::find($user->id);
+        $this->assertEquals(
+            'reader of about three thousand books',
+            $retrievedUser->bio,
+            'bio path did not match'
+        );
+
+
+    }
+    /** @test */
+    public function can_get_feed_for_user(){
+        $user1 = factory(User::class)->create([
+            'name' => 'Eslam Fakhry'
+        ]);
+        $user2 = factory(User::class)->create([
+            'name' => 'John Doe'
+        ]);
+        $user3 = factory(User::class)->create([
+            'name' => 'Adam Smith'
+        ]);
+
+        factory(Review::class)->create([
+            'reviewer_id' => $user2->id,
+            'title' => 'Why 1984 is so great'
+        ]);
+
+        factory(Review::class)->create([
+            'reviewer_id' => $user3->id,
+            'title' => 'five things I love about War and Peace'
+        ]);
+
+        factory(Review::class)->create([
+            'reviewer_id' => $user3->id,
+            'title' => 'The brilliance of Divergent'
+        ]);
+
+        factory(Review::class)->create([
+            'reviewer_id' => $user2->id,
+            'title' => 'Why 1984 is so great'
+        ]);
+        $user1->followings()->attach($user2);
+        $user1->followings()->attach($user3);
+
+        $this->assertCount(
+            4,
+            $user1->feed()->get(),
+            'feed count did not match'
+        );
+        $this->assertEquals(
+          'Why 1984 is so great' ,
+            $user1->feed()->get()[0]->title,
+            'first review title in feed did not match'
+        );
 
 
 

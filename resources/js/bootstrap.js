@@ -12,6 +12,14 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('admin-lte');
+
+    /**
+     * enable tooltips in bootstrap
+     */
+    window.$(function () {
+        window.$('[data-toggle="tooltip"]').tooltip()
+    })
 
 } catch (e) {}
 

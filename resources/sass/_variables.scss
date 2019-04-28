@@ -1,9 +1,8 @@
-
 // Body
-$body-bg: #f8fafc;
+$body-bg: #EDEDED;
 
 // Typography
-$font-family-sans-serif: "Nunito", sans-serif;
+$font-family-sans-serif: "Montserrat", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -19,10 +18,10 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
-
-//$body-bg: #000;
-//
-//$theme-colors: (
-//        "primary": #ff00ff,
-//        "danger": #ff4136
-//);
+$theme-colors: (
+        "primary": #010102,
+        "secondary": #F36D24,
+        "danger": #AD005F,
+        "success":#1AAF00,
+        "warning":#F2E82E,
+);

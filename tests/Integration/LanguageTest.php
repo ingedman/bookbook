@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Database;
+namespace Tests\Integration\Database;
 
 use App\Book;
 use App\Language;
@@ -9,7 +9,7 @@ use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\Unit\DatabaseTest;
+use Tests\Integration\DatabaseTest;
 
 class LanguageTest extends DatabaseTest
 {
