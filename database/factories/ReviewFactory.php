@@ -18,6 +18,6 @@ $factory->define(App\Review::class, function (Faker $faker) {
         },
         'title' => $title,
         
-        'content' => $faker->paragraph
+        'content' => $faker->paragraphs($nb = 4, $asText = true)
     ];
 });

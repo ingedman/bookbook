@@ -22,6 +22,10 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('settings-option', require('./components/SettingsOption.vue').default);
+Vue.component('review-card-controls', require('./components/ReviewCardControls.vue').default);
+Vue.component('comments-section', require('./components/CommentsSection.vue').default);
+Vue.component('comment-create', require('./components/CommentCreate.vue').default);
+Vue.component('user-profile-widget', require('./components/UserProfileWidget.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

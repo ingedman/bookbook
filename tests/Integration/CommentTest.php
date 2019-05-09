@@ -105,6 +105,26 @@ class CommentTest extends DatabaseTest
     }
 
     /** @test */
+    public function can_retrieve_replies_count_of_comment(){
+
+        $comment = factory(Comment::class)->create();
+
+        factory(Comment::class)->create([
+            'parent_id' =>$comment->id,
+        ]);
+        factory(Comment::class)->create([
+            'parent_id' =>$comment->id,
+        ]);
+
+        $this->assertEquals(
+            2,
+            Comment::find($comment->id)->repliesCount,
+            'Total comment replies count did not match'
+        );
+    }
+
+
+    /** @test */
     public function can_retrieve_reports_of_book()
     {
         $comment = factory(Comment::class)->create();

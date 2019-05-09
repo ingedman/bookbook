@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    protected $fillable = [
+        'parent_id','comment','user_id'
+    ];
+
     protected $cast = [
         'is_flagged'=>'boolean',
     ];
@@ -32,5 +36,9 @@ class Comment extends Model
     }
     public function dislikes(){
         return $this->morphMany(Reaction::class,'reactionable')->where('is_like','=',false);
+    }
+    public function getRepliesCountAttribute()
+    {
+        return count($this->replies);
     }
 }

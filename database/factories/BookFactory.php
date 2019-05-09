@@ -19,3 +19,11 @@ $factory->define(Book::class, function (Faker $faker) {
         }
     ];
 });
+
+//$factory->afterCreating(Book::class, function ($book, $faker) {
+//    $book->authors()->save(factory(App\Author::class)->make());
+//    $book->languages()->save(factory(App\Language::class)->make());
+//    $book->languages()->save(factory(App\Language::class)->make());
+//    $book->nativeLanguage()->save(factory(App\Language::class)->make());
+//
+//});

@@ -17,12 +17,19 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the feed of the user.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
-        return view('home');
+        $user = \Auth::user();
+
+        $feed = \Auth::user()
+            ->feed()
+            ->with('reviewer', 'book')
+            ->get();
+
+        return view('home', compact('feed'));
     }
 }

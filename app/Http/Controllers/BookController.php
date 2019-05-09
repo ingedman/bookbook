@@ -7,6 +7,18 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -41,12 +53,15 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Book  $book
+     * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show($slug)
     {
-        //
+        $book = Book::where('slug',$slug)->with('poster','authors','languages')->firstOrFail();
+
+//        dd($book->languages);
+        return view('book.show',compact('book'));
     }
 
     /**

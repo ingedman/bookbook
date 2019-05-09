@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container border-bottom border-primary">
+    <div class="border-bottom border-primary">
         {{-- profile header --}}
         <div class="row">
             <div class="col  justify-content-start flex-grow-0 d-inline-block">
@@ -56,7 +56,7 @@
     </div>
 
     {{-- books section --}}
-    <div class="container min-vh-100">
+    <div class="container">
         <h3 class="mt-5">Reviews</h3>
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group mt-2">

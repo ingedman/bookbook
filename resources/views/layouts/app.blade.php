@@ -46,8 +46,10 @@
                         <a class="nav-link" href="{{ route('home') }}">{{ __('Feed') }}</a>
                         <a class="nav-link" href="{{ route('profile') }}">{{ __('Profile') }}</a>
                         <form class="d-flex align-items-center  mt-2 ml-md-4 mt-md-0 border border-primary rounded-pill">
-                            <input class="form-control mr-sm-2 my-0 py-1 border-0 bg-transparent focus-outline-0 focus-shadow-0" name="q" type="text" placeholder="Search" aria-label="Search">
-                            <button class="btn mx-2 my-0 my-sm-0 py-1  focus-outline-0 focus-shadow-0" type="submit"><i class="fas fa-search"></i></button>
+                            <input class="form-control mr-sm-2 my-0 py-1 border-0 bg-transparent focus-outline-0 focus-shadow-0"
+                                   name="q" type="text" placeholder="Search" aria-label="Search">
+                            <button class="btn mx-2 my-0 my-sm-0 py-1  focus-outline-0 focus-shadow-0" type="submit"><i
+                                        class="fas fa-search"></i></button>
                         </form>
                     @endguest
                 </ul>
@@ -66,12 +68,16 @@
                         @endif
                     @else
                         <li class="nav-item dropdown  ">
-                            <button class="btn focus-shadow-0" type="button" id="notificationsDropdown" data-toggle="dropdown"
+                            <button class="btn focus-shadow-0" type="button" id="notificationsDropdown"
+                                    data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell"></i><span class="badge badge-primary badge-pill">2</span>
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-right notifications" aria-labelledby="notificationsDropdown">
-                                <div class=" d-flex justify-content-between align-items-center px-2"><h4 class="my-2">Notifications</h4><a href="{{route('notifications')}}" class="btn btn-link">show all</a>
+                            <ul class="dropdown-menu dropdown-menu-right notifications"
+                                aria-labelledby="notificationsDropdown">
+                                <div class=" d-flex justify-content-between align-items-center px-2"><h4 class="my-2">
+                                        Notifications</h4><a href="{{route('notifications')}}" class="btn btn-link">show
+                                        all</a>
                                 </div>
                                 <li class="divider"></li>
                                 <div class="notifications-wrapper">
@@ -124,7 +130,18 @@
 
 
     <main class="py-4">
-        @yield('content')
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    @yield('content')
+                </div>
+
+                <div class="col-md-4 hidden-sm-down">
+                @yield('aside')
+                </div>
+            </div>
+        </div>
+
     </main>
 </div>
 </body>

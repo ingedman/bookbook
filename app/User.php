@@ -80,11 +80,18 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'followers', 'follower_id', 'followed_id')->withTimestamps();
     }
+
+    public function readList()
+    {
+        return $this->belongsToMany(Review::class, 'bookmarks')->withTimestamps();
+    }
+
     public function scopeFeed(){
         $userIds = $this->followings()->pluck('followed_id');
 //        $userIds[] = $this->{'id'};
         return Review::whereIn('reviewer_id', $userIds)->latest();
     }
+
 
     public function delete()
     {

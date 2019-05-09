@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container border-bottom border-primary">
+    <div class="border-bottom border-primary">
         {{-- profile header --}}
         <div class="row">
             <div class="col  justify-content-start flex-grow-0 d-inline-block">
@@ -47,9 +47,8 @@
 
         {{-- End of Actions section --}}
     </div>
-
     {{-- reviews section --}}
-    <div class="container min-vh-100">
+    <div class="container ">
         <div class="d-flex justify-content-between align-items-center mt-5">
             <h3 class="">Reviews</h3>
             <a href="#" class="btn btn-primary">New review</a>
@@ -109,5 +108,4 @@
 
     </div>
     {{-- End of reviews section --}}
-
 @endsection

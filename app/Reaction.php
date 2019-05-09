@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Reaction extends Model
 {
 
+    protected $fillable = [
+        'user_id', 'is_like',
+    ];
+
     protected $cast = [
       'is_like'=>'boolean',
     ];

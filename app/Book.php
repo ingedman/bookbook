@@ -40,7 +40,7 @@ class Book extends Model
         return $this->morphMany(Report::class, 'reportable');
     }
     public function languages(){
-        return $this->morphToMany(Language::class, 'languageable');
+        return $this->morphToMany(Language::class, 'languageable')->withPivot('is_primary');
     }
     public function nativeLanguage(){
 

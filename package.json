@@ -10,6 +10,7 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@editorjs/editorjs": "^2.13.0",
         "admin-lte": "^3.0.0-alpha.2",
         "axios": "^0.18",
         "bootstrap": "^4.0.0",

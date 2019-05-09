@@ -22,6 +22,17 @@ class DatabaseSeeder extends Seeder
 //        factory(App\Book::class)->create();
 //        factory(App\Report::class)->create();
 //        factory(App\Comment::class)->create();
+        for ($i = 0; $i < 20; $i++) {
+            $user = factory(App\User::class)->create();
+            if (in_array($i,[3,4,5,7])){
+                App\User::find(1)->followings()->attach($user);
+            }
+            for ($j = 0; $j < 20; $j++) {
+                factory(App\Review::class)->create([
+                    'reviewer_id' => $user->id
+                ]);
+            }
+        }
 
     }
 }

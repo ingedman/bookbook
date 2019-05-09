@@ -147,6 +147,47 @@ class ReviewTest extends DatabaseTest
     }
 
     /** @test */
+    public function can_retrieve_comments_count_of_review(){
+
+        $review = factory(Review::class)->create();
+
+        $this->assertEquals(
+            0,
+            Review::find($review->id)->commentsCount,
+            'Total review comments count did not match'
+        );
+
+        $comment = factory(Comment::class)->create([
+            'commentable_id' => $review->id,
+            'commentable_type' => Review::class,
+            'comment'=>'great job bro'
+        ]);
+        factory(Comment::class)->create([
+            'commentable_id' => $review->id,
+            'commentable_type' => Review::class,
+            'comment' =>'keep it up'
+        ]);
+        factory(Comment::class)->create([
+            'parent_id' =>$comment->id,
+            'commentable_id' => $review->id,
+            'commentable_type' => Review::class,
+            'comment' =>'thanks'
+        ]);
+        factory(Comment::class)->create([
+            'parent_id' =>$comment->id,
+            'commentable_id' => $review->id,
+            'commentable_type' => Review::class,
+            'comment' =>'thanks'
+        ]);
+
+        $this->assertEquals(
+            4,
+            Review::find($review->id)->commentsCount,
+            'Total review comments count did not match'
+        );
+    }
+
+    /** @test */
     public function can_retrieve_language_of_review(){
         $lang = factory(Language::class)->create([
             'name' => 'english',

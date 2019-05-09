@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Report extends Model
 {
+    protected $fillable = ['content','reporter_id'];
+
     public function reportable()
     {
         return $this->morphTo();

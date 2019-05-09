@@ -373,4 +373,44 @@ class UserTest extends DatabaseTest
 
 
     }
+
+    /** @test */
+    public function can_retrieve_read_list_of_user(){
+        $user = factory(User::class)->create([
+            'name' => 'Eslam Fakhry'
+        ]);
+
+        $review1 = factory(Review::class)->create([
+            'title' => 'About War and Peace'
+        ]);
+        $review2 = factory(Review::class)->create([
+            'title' => 'About Divergent'
+        ]);
+
+
+
+        $user->readList()->attach($review1);
+        $user->readList()->attach($review2);
+
+
+
+        $this->assertEquals(
+            'About War and Peace',
+            $user->readList[0]->title,
+            'First review title in the read list did not match');
+
+
+        $this->assertEquals(
+            'About Divergent',
+            $user->readList[1]->title,
+            'Second review title in the read list did not match');
+
+
+
+        $this->assertCount(
+            2,
+            $user->readList,
+            'Reviews count in read list did not match');
+    }
+
 }

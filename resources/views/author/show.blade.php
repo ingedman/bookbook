@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container border-bottom border-primary">
+    <div class=" border-bottom border-primary">
         {{-- profile header --}}
         <div class="row pb-4">
             <div class="col  justify-content-start flex-grow-0 d-inline-block">

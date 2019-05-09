@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container border-bottom border-primary">
+    <div class="border-bottom border-primary">
         {{-- book info section --}}
         <div class="row">
             <div class="col-md-6 d-flex  justify-content-center  align-items-center flex-grow-0 d-inline-block">
@@ -11,31 +11,34 @@
                 <table class="table table-borderless">
                     <tbody>
                     <tr>
-                        <th class="">Authors</th>
+                        @if(count($book->authors) > 1)
+                            <th class="">Authors</th>
+                        @else
+                            <th class="">Author</th>
+
+                        @endif
                         <td>
-                            <div class="">Leo Tolstoy</div>
-                            <div class="">Adam Smith</div>
+                            @foreach($book->authors as $author)
+                                <div class="">{{$author->name}}</div>
+                            @endforeach
                         </td>
                     </tr>
                     <tr>
                         <th class="">Year:</th>
-                        <td>1990</td>
+                        <td>{{$book->year}}</td>
                     </tr>
                     <tr>
                         <th class="">Genre:</th>
-                        <td>Horror</td>
+                        <td>{{$book->genre}}</td>
                     </tr>
                     <tr>
                         <th class="">Languages:</th>
                         <td>
-                            <div class="">English
-                                <small>
-                                    <div class="badge badge-pill badge-primary pl-1">primary</div>
-                                </small>
-                            </div>
-                            <div class="">Arabic</div>
-                            <div class="">Spanish</div>
-                            <div class="">German</div>
+                            @foreach($book->languages as $language)
+                                <div class="">{{$language->name}}<small>
+                                        <div class="badge badge-pill badge-primary pl-1">primary</div>
+                                    </small></div>
+                            @endforeach
                         </td>
                     </tr>
                     </tbody>
@@ -70,7 +73,7 @@
     </div>
 
     {{-- reviews section --}}
-    <div class="container min-vh-100">
+    <div class="container">
         <h3 class="mt-5">Reviews</h3>
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group mt-2">

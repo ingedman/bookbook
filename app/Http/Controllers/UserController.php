@@ -29,6 +29,17 @@ class UserController extends Controller
     }
 
     /**
+     * Display a profile page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function like()
+    {
+        return view('user.profile');
+    }
+
+
+    /**
      * Display a Settings page.
      *
      * @return \Illuminate\Http\Response
@@ -50,5 +61,21 @@ class UserController extends Controller
     }
 
 
+    public function follow(User $user)
+    {
+        $user->followers()->toggle(\Auth::user());
+        $already = count($user->followers->where('id',\Auth::user()->id))>0;
 
+        return response()->json([
+            'already'=>$already,
+        ]);
+    }
+
+    public function report(Request $request, User $user)
+    {
+        $user->reports()->create(['reporter_id' => \Auth::user()->id,'content' => $request->input('content')]);
+        return response()->json([
+            'success'=>true,
+        ]);
+    }
 }
