@@ -293,17 +293,17 @@ class UserTest extends DatabaseTest
     }
 
     /** @test */
-    public function can_retrieve_photo_of_user()
+    public function can_retrieve_avatar_of_user()
     {
         $user = factory(User::class)->create([
-            'photo' => 'http://path/to/photo.png'
+            'avatar' => 'http://path/to/avatar.png'
         ]);
 
         $retrievedUser = User::find($user->id);
         $this->assertEquals(
-            'http://path/to/photo.png',
-            $retrievedUser->photo,
-            'photo path did not match'
+            'http://path/to/avatar.png',
+            $retrievedUser->avatar,
+            'avatar path did not match'
         );
 
 

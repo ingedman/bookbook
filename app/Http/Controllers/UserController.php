@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\UserFollowed;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -18,64 +19,114 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
+
     /**
-     * Display a profile page.
+     * Display user list of followers.
      *
      * @return \Illuminate\Http\Response
      */
-    public function profile()
+    public function followers()
     {
-        return view('user.profile');
+        $users = \Auth::user()->followers()->paginate(20);
+        $emptyMsg = "Nobody is following you right now";
+        $recommendation = [];
+        $recommendation['users'] = User::inRandomOrder()->take(3)->get();
+        $recommendation['reviews'] = \App\Review::inRandomOrder()->take(3)->get();
+
+        return view('user.followers', compact('users', 'emptyMsg', 'recommendation'));
     }
 
     /**
-     * Display a profile page.
+     * Display user list page of a user.
      *
      * @return \Illuminate\Http\Response
      */
-    public function like()
+    public function following()
     {
-        return view('user.profile');
+        $users = \Auth::user()->followings()->paginate(20);
+        $emptyMsg = "You are not following any on right now";
+        $recommendation = [];
+        $recommendation['users'] = User::inRandomOrder()->take(3)->get();
+        $recommendation['reviews'] = \App\Review::inRandomOrder()->take(3)->get();
+        return view('user.followers', compact('users', 'emptyMsg', 'recommendation'));
+    }
+
+    /**
+     * Display profile page of a user.
+     *
+     * @param Request $request
+     * @param User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function profile(Request $request, User $user)
+    {
+        $allowableSort = ['title', 'created_at', 'id'];
+        $sort = $request->input('sort', 'id');
+        $reviews = $user->reviews()->withCount('likes');
+
+        if ($sort === 'popular') {
+            $reviews = $reviews->orderBy('likes_count','DESC');
+
+        } elseif (in_array($sort, $allowableSort)) {
+            $reviews = $reviews->orderBy($sort);
+        }
+        $reviews = $reviews->paginate(5)
+            ->appends('sort', $request->input('sort'));
+        $recommendation = [];
+        $recommendation['users'] = User::inRandomOrder()->take(3)->get();
+        $recommendation['reviews'] = \App\Review::inRandomOrder()->take(3)->get();
+        return view('user.profile', compact('user', 'reviews', 'recommendation'));
     }
 
 
     /**
-     * Display a Settings page.
+     * Display Authenticated user profile page.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function settings()
+    public function ownProfile(Request $request)
     {
-        return view('user.settings');
+        return $this->profile($request, \Auth::user());
     }
 
 
     /**
-     * Display a notifications page.
+     * Toggle following state of a user to user
      *
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function notifications()
-    {
-        return view('user.notifications');
-    }
-
-
     public function follow(User $user)
     {
-        $user->followers()->toggle(\Auth::user());
-        $already = count($user->followers->where('id',\Auth::user()->id))>0;
-
+        if (\Auth::user()->isNot($user)) {
+            $user->followers()->toggle(\Auth::user());
+            $already = $user->{'followers'}->contains(\Auth::user());
+            if ($already) $user->notify(new UserFollowed(\Auth::user()));
+            return response()->json([
+                'success' => true,
+                'already' => $already,
+            ]);
+        }
         return response()->json([
-            'already'=>$already,
+            'success' => false,
         ]);
     }
 
-    public function report(Request $request, User $user)
+    /**
+     * Remove the specified user from storage.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     * @throws \Exception
+     */
+    public function destroy(Request $request)
     {
-        $user->reports()->create(['reporter_id' => \Auth::user()->id,'content' => $request->input('content')]);
-        return response()->json([
-            'success'=>true,
-        ]);
+        if ($request->input('confirm_text') === \Auth::user()->{'email'}) {
+            $user = \Auth::user();
+            $user->delete();
+            return redirect()->route('home');
+        }
+        return redirect()->back();
     }
 }

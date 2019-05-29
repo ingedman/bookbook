@@ -100,4 +100,20 @@ return [
         ],
     ],
 
+    /*
+     |--------------------------------------------------------------------------
+     | Adding socialite drivers
+     |--------------------------------------------------------------------------
+     |
+     | Using google, github, and twitter OAuth services
+     |
+     */
+
+    'socialite' => [
+        'drivers' => [
+            'google',
+            'github'
+        ],
+    ],
+
 ];

@@ -23823,6 +23823,10 @@ a.text-dark:focus {
   line-height: 1.6;
 }
 
+.no-underline {
+  text-decoration: none !important;
+}
+
 .or-divider {
   position: relative;
 }
@@ -23868,8 +23872,13 @@ a.text-dark:focus {
 }
 
 .notifications {
-  min-width: 375px;
   max-width: 90vw;
+}
+
+@media (min-width: 576px) {
+  .notifications {
+    min-width: 375px;
+  }
 }
 
 .notifications-wrapper {
@@ -23883,5 +23892,13 @@ a.text-dark:focus {
 
 .notifications a.content {
   text-decoration: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.fa-sm {
+  font-size: 0.6em;
 }
 

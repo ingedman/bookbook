@@ -3,17 +3,34 @@
         <!-- single settings option -->
         <div class="col flex-grow-1 settings-option-detail ">
             <div class="row ">
-                <div class=" col-md-3 col-lg-2"><p class="h5 text-md-right">{{label}}</p></div>
+                <div class=" col-md-4 col-lg-3"><p class="h5 text-md-right">{{option.label}}</p></div>
                 <div class="col-sm">
                     <div v-if="!editMode">
-                        <div  v-for="item in items" :key="item" class="">{{item}}</div>
+                        <div  v-for="(item, i) in items" :key="item" class="">{{item}}</div>
                     </div>
-                    <div v-else class="row">
-                        <form class="col-sm-7 col-md-6">
+                    <div v-else class="">
+                        <form class="">
 
                             <ul class="list-group">
-                                <li v-for="item in items" :key="item" class="list-group-item" ><input type="text" class="form-control" name="languages[]" :value="item"></li>
-                                <li class="list-group-item"><button type="submit" class="btn btn-primary">Save</button></li>
+                                <settings-option-item
+                                        v-for="(item, i) in items"
+                                        :key="i"
+                                        :iter="i"
+                                        :item="item"
+                                        :option_name="option.name"
+                                        :type="option.type"
+                                        :select_options="option.selectOptions"
+                                        :hideClose="closeIconHidden"
+                                        @remove="removeItem"
+                                        @change="updateItems"
+                                ></settings-option-item>
+                                <!--<li v-for="(item, i) in items" :key="item" class="list-group-item d-flex align-items-center" >-->
+                                    <!--<input type="text" class="form-control" :name="`${option.name}[]`" v-model="items[i]" >-->
+                                    <!--<a role="button" class="btn" @click="removeItem(i)" v-show="!closeIconHidden"><i class="fas fa-times"></i></a>-->
+                                <!--</li>-->
+                                <li class="list-group-item text-right" v-if="option.isList"><a role="button" class="btn" @click.prevent="addItem"><i class="fas fa-plus"></i></a></li>
+
+                                <li class="list-group-item"><button type="submit" class="btn btn-primary" @click.prevent="save">Save</button></li>
                             </ul>
                         </form>
                         <!--<form class="col-sm-7 col-md-6">-->
@@ -37,11 +54,11 @@
 <script>
     import SettingsOptionItem from './SettingsOptionItem';
     export default {
-        props: ['label', 'initial_items_list'],
+        props: ['option'],
         components:{SettingsOptionItem},
         data() {
             return {
-                items: this.initial_items_list,
+                items: this.option.items,
                 editMode: false
             }
         },
@@ -52,18 +69,39 @@
                 }
             },
             addItem(){
+                if(this.option.type === 'select'){
                 this.items.push({
-                    description:'',
-                    amount:1,
-                    rate:0,
+                    id:'',
+                    label:''
                 })
+                }else{
+                this.items.push('')
+                }
             },
             updateItems(event){
-                this.items[event.iter] = event.item;
+                this.items[event.index] = event.item;
+            },
+            save(){
+                axios({
+                    method: 'post',
+                    url: window.location.href,
+                    data: {
+                        [this.option.name]: this.option.items.values
+                    },
+                }).then((res) => {
+                    console.log(res.data)
+                }).catch((err) => {
+                    console.log(err)
+                })
+            }
+        },
+        computed:{
+            closeIconHidden(){
+              return (this.items.length < 2) || !this.option.isList
             },
         },
         mounted() {
-            console.log('Component mounted 2.')
+            // console.log(this.option.type,this.option.items)
         }
     }
 </script>

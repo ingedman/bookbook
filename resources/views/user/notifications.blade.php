@@ -5,17 +5,20 @@
     {{-- main notifications section --}}
     <h2>Notifications</h2>
 
-    @for($i=0;$i<5;$i++)
+
+
+    @forelse($notifications as $notification)
+
         {{-- single notification --}}
-        <div class="media border-bottom border-primary py-1">
-            <img src="{{ asset('img/man.jpg') }}" width="30" class="mr-3 rounded-circle " alt="user profile picture">
-            <div class="media-body">
-                <h5 class="mt-0">someone commented on you review no. {{$i}}</h5>
-                <p class="mb-0">2 days ago</p>
-            </div>
-        </div>
+        <notifications-item  :notification="{{ $notification }}"></notifications-item>
+
         {{-- End of single notification --}}
-    @endfor
+    @empty
+        You have no notifications
+    @endforelse
+    <div class="d-flex justify-content-center my-4">
+        {{ $notifications->links() }}
+    </div>
 
 
     {{-- End of main notifications section --}}
@@ -23,20 +26,9 @@
 
 @section('aside')
 
-    <div class="card">
-        <div class="card-header">Dashboard</div>
-
-        <div class="card-body">
-            @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
-
-            You are logged in!
-        </div>
-    </div>
-
+    {{-- aside section --}}
+    @include('partials.side_bar_recommendation',compact('recommendation'))
+    {{-- End of aside section --}}
 @endsection
 
 

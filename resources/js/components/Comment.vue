@@ -15,18 +15,26 @@
                 </div>
                 <p class="px-2">{{comment.comment}}</p>
             </div>
-            <comment-controls :reply="reply" :comment="comment"></comment-controls>
+            <comment-controls :reply="reply" :comment="comment"
+                              @click_comments="showReplies = !showReplies"></comment-controls>
         </div>
         <div class="badge badge-primary" @click="loadReplies" v-if="!reply">show replies</div>
+        <div class="replies ml-5" v-show="showReplies">
+            <comment
+                    v-if="!reply"
+                    :reply="true"
+                    v-for="(comment, i) in replies"
+                    :key="i"
+                    :comment="comment"
+                    class=" my-1"
+            ></comment>
+            <comment-create ref="commentCreate"
+                            v-if="!reply"
+                            :parent="comment.id"
+                            @comment="addComment"
+            ></comment-create>
 
-        <comment
-                v-if="!reply"
-                :reply="true"
-                v-for="(comment, i) in replies"
-                :key="i"
-                :comment="comment"
-                class="ml-5 my-1"
-        ></comment>
+        </div>
 
     </div>
 </template>
@@ -35,6 +43,8 @@
 
     import CommentControls from './CommentControls'
     import Comment from './Comment'
+    import CommentCreate from './CommentCreate'
+    import {Bus} from "../bus";
 
     export default {
         name: 'Comment',
@@ -42,7 +52,7 @@
             'comment',
             'reply'
         ],
-        components: {CommentControls, Comment},
+        components: {CommentControls, Comment, CommentCreate},
         data() {
             return {
                 replies: [],
@@ -66,9 +76,29 @@
                     console.log('Error: ', err)
                 })
             },
+            addComment(comment) {
+                // console.log(comment)
+                this.replies.push(comment)
+                // this.$forceUpdate();
+
+            },
+            scrollToCreate() {
+                $('html, body').animate({
+                    scrollTop: $(this.$refs.commentCreate).offset().top
+                }, 2000);
+            }
         },
         mounted() {
-            console.log(this.comment)
+            // todo: check if the problem here was solved
+            const _this = this;
+            if (!this.reply) {
+                console.log('comment mounted')
+                Bus.$on(`comment-${this.comment.id}`, function (comment) {
+                    console.log('from comment:',`comment-${_this.comment.id}`)
+                    _this.addComment(comment)
+
+                })
+            }
         }
     }
 </script>

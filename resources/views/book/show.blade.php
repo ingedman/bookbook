@@ -3,23 +3,21 @@
 @section('content')
     <div class="border-bottom border-primary">
         {{-- book info section --}}
-        <div class="row">
-            <div class="col-md-6 d-flex  justify-content-center  align-items-center flex-grow-0 d-inline-block">
-                <img class="" src="{{ asset('img/book.jpg') }}" width="144" alt="book cover">
+        <h1>{{ $book->{'title'} }}</h1>
+        <div class="row pb-2">
+            <div class="col d-flex flex-grow-0  justify-content-center  align-items-center
+             d-inline-block">
+                <img class="" src="{{$book->{'coverUrl'} }}" width="144" alt="book cover">
             </div>
             <div class="col">
                 <table class="table table-borderless">
                     <tbody>
                     <tr>
-                        @if(count($book->authors) > 1)
-                            <th class="">Authors</th>
-                        @else
-                            <th class="">Author</th>
+                        <th class="">{{ Str::plural('Author', count($book->authors)) }}</th>
 
-                        @endif
                         <td>
                             @foreach($book->authors as $author)
-                                <div class="">{{$author->name}}</div>
+                                <div><a href="{{route('author',$author->{'id'})}}" class="">{{$author->name}}</a></div>
                             @endforeach
                         </td>
                     </tr>
@@ -35,9 +33,7 @@
                         <th class="">Languages:</th>
                         <td>
                             @foreach($book->languages as $language)
-                                <div class="">{{$language->name}}<small>
-                                        <div class="badge badge-pill badge-primary pl-1">primary</div>
-                                    </small></div>
+                                <div class="">{{$language->name}}</div>
                             @endforeach
                         </td>
                     </tr>
@@ -48,28 +44,9 @@
         {{-- End of book info section --}}
 
         {{-- Actions section --}}
-        <div class="row">
-            <div class="col d-flex flex-column align-items-center">
-                <div>702k</div>
-                <i class="fas fa-home line-height-initial"></i>
-            </div>
-            <div class="col d-flex flex-column align-items-center">
-                <div>500</div>
-                <i class="fas fa-home line-height-initial"></i>
-            </div>
-            <div class="col d-flex flex-column align-items-center justify-content-end">
-                <i class="fas fa-home line-height-initial"></i>
-            </div>
-            <div class="col d-flex flex-column align-items-center justify-content-end">
-                <i class="fas fa-home line-height-initial"></i>
-            </div>
-            <div class="col  d-flex flex-column align-items-center justify-content-end">
-                <i class="fas fa-home line-height-initial "></i>
-
-            </div>
-        </div>
-
+        <book-card-controls :book="{{$book->controlsJson}}" index="{{$book->id}}"></book-card-controls>
         {{-- End of Actions section --}}
+
     </div>
 
     {{-- reviews section --}}
@@ -79,57 +56,82 @@
             <div class="btn-group mt-2">
                 <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                    order by popularity
+                    <span>order by</span>
+                    <span>
+                        @switch(request('sort'))
+                            @case('popular')
+                            popularity
+                            @break
+
+                            @case('title')
+                            title
+                            @break
+
+                            @default
+                            date
+                        @endswitch
+                        </span>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">date</a>
-                    <a class="dropdown-item" href="#">popularity</a>
+                    <a class="dropdown-item"
+                       href="{{ route(Route::currentRouteName() , ['slug'=>$book->{'slug'},'sort'=>'created_at','page'=>request('page')]) }}"
+                    >date</a>
+                    <a class="dropdown-item"
+                       href="{{ route(Route::currentRouteName() , ['slug'=>$book->{'slug'},'sort'=>'popular','page'=>request('page')]) }}"
+                    >popularity</a>
+                    <a class="dropdown-item"
+                       href="{{ route(Route::currentRouteName() , ['slug'=>$book->{'slug'},'sort'=>'title','page'=>request('page')]) }}"
+                    >title</a>
 
                 </div>
             </div>
-            <a href="#" class="btn btn-link">show all</a>
+            {{--<a href="#" class="btn btn-link">show all</a>--}}
+            <a href="{{route('review.create' , ['book'=>$book->{'slug'}])}}"
+               class="btn btn-primary"
+            >New review</a>
+
 
         </div>
         <div class="pt-3">
-            <div class="row">
-                @for($i=0;$i<5;$i++)
+            <div class="">
+                @forelse($reviews as $review)
+
                     {{-- single review card --}}
-                    <div class="col-md-6 d-flex">
+                    <div class=" d-flex">
                         <div class="card flex-grow-1">
                             <div class="card-body ">
-                                <h5 class="card-title mb-0">Card title</h5>
-                                <small class="text-muted">By <strong>John Doe</strong></small>
-                                <p class="card-text mt-2">Some quick example text .</p>
+                                <a class="no-underline" href="{{route('review',$review->{'slug'})}}">
+                                    <h5 class="card-title mb-0">{{$review->title}}</h5>
+                                </a>
+
+                                <small class="text-muted">By
+                                    <a href="{{route('user.profile',$review->reviewer->id)}}">
+                                        <strong>{{$review->reviewer->name}}</strong>
+                                    </a>
+                                </small>
+                                <a class="no-underline" href="{{route('review',$review->{'slug'})}}">
+                                    <p class="card-text mt-2">{!! $review->{'preview'} !!}</p>
+                                </a>
+
                             </div>
                             <div class="card-body pb-0 flex-grow-0">
-                                <div class="row">
-                                    <div class="col d-flex flex-column align-items-center">
-                                        <div>708k</div>
-                                        <i class="fas fa-home line-height-initial "></i>
+                                {{-- Actions section --}}
+                                <review-card-controls index="{{$review->id}}"
+                                                      :review="{{$review->controlsJson}}"></review-card-controls>
+                                {{-- End of Actions section --}}
 
-                                    </div>
-                                    <div class="col d-flex flex-column align-items-center">
-                                        <div>708k</div>
-                                        <i class="fas fa-home line-height-initial "></i>
-
-                                    </div>
-                                    <div class="col d-flex flex-column align-items-center justify-content-end">
-                                        <i class="fas fa-home line-height-initial"></i>
-                                    </div>
-                                    <div class="col d-flex flex-column align-items-center justify-content-end">
-                                        <i class="fas fa-home line-height-initial "></i>
-
-                                    </div>
-                                    <div class="col d-flex flex-column align-items-center justify-content-end">
-                                        <i class="fas fa-home line-height-initial"></i>
-                                    </div>
-
-                                </div>
                             </div>
                         </div>
                     </div>
+
+
                     {{-- End of single review card --}}
-                @endfor
+                @empty
+                    This book has no reviews yet. <a href="#">add review</a>
+                @endforelse
+                <div class="d-flex justify-content-center my-4">
+                    {{ $reviews->links() }}
+                </div>
             </div>
 
         </div>
@@ -137,4 +139,11 @@
     </div>
     {{-- End of reviews section --}}
 
+@endsection
+
+@section('aside')
+
+    {{-- aside section --}}
+    @include('partials.side_bar_recommendation',compact('recommendation'))
+    {{-- End of aside section --}}
 @endsection

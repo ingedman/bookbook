@@ -9,15 +9,15 @@
 
     <title>{{ config('app.name', 'Bookbook') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="/css/cropper.css" rel="stylesheet">
     <script src="{{asset('js/fontawesome-all.js')}}"></script>
 
 </head>
@@ -39,23 +39,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto align-items-md-center">
+                <ul class="navbar-nav mr-auto1 flex-grow-1 align-items-md-center">
                     <!-- Authentication Links -->
                     @guest
                     @else
-                        <a class="nav-link" href="{{ route('home') }}">{{ __('Feed') }}</a>
-                        <a class="nav-link" href="{{ route('profile') }}">{{ __('Profile') }}</a>
-                        <form class="d-flex align-items-center  mt-2 ml-md-4 mt-md-0 border border-primary rounded-pill">
-                            <input class="form-control mr-sm-2 my-0 py-1 border-0 bg-transparent focus-outline-0 focus-shadow-0"
-                                   name="q" type="text" placeholder="Search" aria-label="Search">
-                            <button class="btn mx-2 my-0 my-sm-0 py-1  focus-outline-0 focus-shadow-0" type="submit"><i
-                                        class="fas fa-search"></i></button>
-                        </form>
+
+                        <search-input search_url="{{ route('search.all') }}"
+                                      icon_url="{{ asset('images/logo-algolia-nebula-blue-full.svg') }}"
+
+                        ></search-input>
                     @endguest
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto ">
+                <ul class="navbar-nav ml-auto1 align-items-center ">
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
@@ -67,43 +64,48 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown  ">
-                            <button class="btn focus-shadow-0" type="button" id="notificationsDropdown"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell"></i><span class="badge badge-primary badge-pill">2</span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-right notifications"
-                                aria-labelledby="notificationsDropdown">
-                                <div class=" d-flex justify-content-between align-items-center px-2"><h4 class="my-2">
-                                        Notifications</h4><a href="{{route('notifications')}}" class="btn btn-link">show
-                                        all</a>
-                                </div>
-                                <li class="divider"></li>
-                                <div class="notifications-wrapper">
-                                    <a class="content" href="#">
+                        <a class="nav-link" href="{{ route('home') }}">{{ __('Feed') }}</a>
+                        <a class="nav-link" href="{{ route('own-profile') }}">{{ __('Profile') }}</a>
 
-                                        <div class="notification-item px-2 py-3 bg-light">
-                                            someone commented on you review
-                                        </div>
-                                    </a>
-                                    <a class="content" href="#">
-                                        <div class="notification-item px-2 py-3 bg-light">
-                                            500 readers liked your comment
-                                        </div>
-                                    </a>
-                                </div>
-                            </ul>
+                        <li class="nav-item">
+                            <a href="{{ route('bookmarks') }}"
+                               class="nav-link"
+                               data-toggle="tooltip"
+                               data-placement="bottom"
+                               title="Read Later List"
+                            >
+                                <i class="far fa-bookmark line-height-initial hidden-sm-down"></i>
+                                <span class=" hidden-md-up">Read later list</span>
+
+                            </a>
                         </li>
+
+                        <notifications-drop-down class="" all_url="{{route('notifications')}}"
+                                       notifications_url="{{route('notifications.unread',Auth::user()->{'id'}) }}"
+                                       user_id="{{ Auth::user()->{'id'} }}"
+                                       read_all_url="{{ route('notifications.read_all') }}"
+                        ></notifications-drop-down>
+
                         <li class="nav-item dropdown ">
-                            <button class="btn focus-shadow-0" type="button" id="navbarDropdown" data-toggle="dropdown"
+                            <button class="btn nav-link focus-shadow-0" type="button" id="navbarDropdown" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                                <img src="{{asset('img/man.jpg')}}" alt="profile" width="30" class="rounded-circle "
-                                     v-pre>
+
+                                <profile-picture src="{{ Auth::user()->{'avatarUrl'} }}"
+                                                 width="30"
+                                                 class="hidden-sm-down"
+                                ></profile-picture>
+                                <span class=" hidden-md-up dropdown-toggle">{{ Auth::user()->{'name'} }}</span>
                             </button>
 
                             <div class="dropdown-menu dropdown-menu-right"
                                  aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('followers') }}">
+                                    {{ __('Followers') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('following') }}">
+                                    {{ __('Following') }}
+                                </a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('settings') }}">
                                     {{ __('Settings') }}
                                 </a>
@@ -134,15 +136,23 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     @yield('content')
-                </div>
+                    @include('partials.modals')
 
-                <div class="col-md-4 hidden-sm-down">
-                @yield('aside')
                 </div>
+                @hasSection('aside')
+                    <div class="col-md-4 hidden-sm-down">
+                        @yield('aside')
+                    </div>
+                @endif
             </div>
         </div>
 
     </main>
 </div>
+
+
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}" ></script>
+@stack('scripts')
 </body>
 </html>

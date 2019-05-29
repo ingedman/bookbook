@@ -19,82 +19,37 @@ class BookController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
-     * Show the form for creating a new resource.
+     * Display the specified book.
      *
+     * @param Request $request
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function show(Request $request, $slug)
     {
-        //
-    }
+        $book = Book::where('slug', $slug)->with('poster', 'authors', 'languages')->firstOrFail();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $allowableSort = ['title', 'created_at', 'id'];
+        $sort = $request->input('sort', 'id');
+        $reviews = $book->reviews()->withCount('likes');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  string  $slug
-     * @return \Illuminate\Http\Response
-     */
-    public function show($slug)
-    {
-        $book = Book::where('slug',$slug)->with('poster','authors','languages')->firstOrFail();
+        if ($sort === 'popular') {
+            $reviews = $reviews->orderBy('likes_count','DESC');
 
-//        dd($book->languages);
-        return view('book.show',compact('book'));
-    }
+        } elseif (in_array($sort, $allowableSort)) {
+            $reviews = $reviews->orderBy($sort);
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Book $book)
-    {
-        //
-    }
+        $reviews = $reviews->paginate(5)
+            ->appends('sort', $request->input('sort'));
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Book $book)
-    {
-        //
-    }
+        $recommendation = [];
+        $recommendation['users'] = \App\User::inRandomOrder()->take(3)->get();
+        $recommendation['reviews'] = \App\Review::inRandomOrder()->take(3)->get();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Book $book)
-    {
-        //
+
+        return view('book.show', compact('book', 'reviews', 'recommendation'));
     }
 }

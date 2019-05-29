@@ -2,28 +2,37 @@
     <div class="card my-4 bg-light">
         <div class="card-body">
             <div class="row mb-1">
-                <div class="col pr-0  justify-content-start flex-grow-0 d-inline-block">
-                    <img class="rounded-circle" src="http://127.0.0.1:8000/img/man.jpg" width="40"
-                         alt="picture of the comment owner">
+                <div class="col  pr-0  justify-content-start flex-grow-0 d-inline-block">
+                    <img class="rounded-circle" :src="img_url" width="40"
+                         alt="picture of the user">
                 </div>
-                <div class="col d-flex flex-column justify-content-center">
+                <div  class="col d-none flex-column justify-content-center" :class="isActive?'d-flex':''">
                     <h6 class="profile-name mb-1">Eslam Fakhry</h6>
                 </div>
+                <div class="w-100" v-show="isActive"></div>
+                <div class="col">
+                    <textarea class="form-control my-2 bg-transparent" :rows="isActive?'3':'1'"
+                              v-model="commentContent" v-on:focus="isActive = true"></textarea>
+                </div>
             </div>
-            <textarea class="form-control my-2 bg-transparent" id="exampleFormControlTextarea1" rows="3"
-                      v-model="commentContent"></textarea>
-            <button type="button" class="btn btn-primary" @click="comment">Comment</button>
+            <button type="button" class="btn btn-primary" @click="comment" v-show="isActive" >Comment</button>
+            <button type="button" class="btn btn-primary" @click="isActive = false" v-show="isActive" >Cancel</button>
 
         </div>
     </div>
 </template>
 
 <script>
+    // todo: solve new comment being liked
+
+
     export default {
         props: ['url', 'parent'],
+        inject: ['review_comment_url','img_url'],
         data() {
             return {
-                commentContent: ''
+                commentContent: '',
+                isActive: false
             }
         },
         methods: {
@@ -31,14 +40,34 @@
 
                 axios({
                     method: 'post',
-                    url: this.url,
+                    url: this.review_comment_url,
                     data: {
                         'comment': this.commentContent,
                         'parent_id': this.parent
                     }
                 }).then((res) => {
-                    console.log(res.data)
-                    // this.commentContent = ''
+                    // console.log(res.data)
+                    if (res.data.success) {
+                        this.commentContent = ''
+                        this.isActive= false
+                        this.$emit('comment',JSON.parse(res.data.comment))
+
+                        this.$toasted.show("You comment has been posted", {
+                            theme: "toasted-primary",
+                            position: "top-right",
+                            duration : 5000,
+                            action : {
+                                text: 'Close',
+                                onClick: (e, toastObject) => {
+                                    toastObject.goAway(0);
+                                }
+                            },
+                        });
+                    }
+
+
+
+
 
                 }).catch((err) => {
                     console.log('Error: ', err)
@@ -46,6 +75,7 @@
             }
         },
         mounted() {
+
 
         }
     }

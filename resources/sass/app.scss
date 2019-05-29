@@ -1,55 +1,53 @@
-
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,400,700');
 @import url('https://use.fontawesome.com/releases/v5.0.6/css/all.css');
-
 // Variables
 @import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
 // Admin-lte
 @import '~admin-lte/dist/css/adminlte.css';
 
 
-
-
-
 // Custom styles
 
-.hidden-md-down{
-  @include media-breakpoint-down(md){
-    display: none!important;
+.hidden-md-down {
+  @include media-breakpoint-down(md) {
+    display: none !important;
   }
 }
-.hidden-sm-down{
-  @include media-breakpoint-down(sm){
-    display: none!important;
+
+.hidden-sm-down {
+  @include media-breakpoint-down(sm) {
+    display: none !important;
   }
 }
-.hidden-sm-up{
-  @include media-breakpoint-up(sm){
-    display: none!important;
+
+.hidden-sm-up {
+  @include media-breakpoint-up(sm) {
+    display: none !important;
   }
 }
-.hidden-md-up{
-  @include media-breakpoint-up(md){
-    display: none!important;
+
+.hidden-md-up {
+  @include media-breakpoint-up(md) {
+    display: none !important;
   }
 }
-.hidden-lg-up{
-  @include media-breakpoint-up(lg){
-    display: none!important;
+
+.hidden-lg-up {
+  @include media-breakpoint-up(lg) {
+    display: none !important;
   }
 }
 
 // remove outline from buttons
-.focus-outline-0:focus{
-  outline:none;
+.focus-outline-0:focus {
+  outline: none;
 }
+
 // remove shadow from buttons
-.focus-shadow-0:focus{
+.focus-shadow-0:focus {
   box-shadow: none;
 }
 
@@ -58,11 +56,15 @@
 
 }
 
+.no-underline {
+  text-decoration: none !important
+}
 
 
-.or-divider{
+.or-divider {
   position: relative;
-  &::before{
+
+  &::before {
     content: "";
     width: 50%;
     height: 1px;
@@ -71,10 +73,11 @@
     background-color: #000;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     z-index: -2;
   }
-  &::after{
+
+  &::after {
     content: "";
     width: 50px;
     height: 100%;
@@ -83,41 +86,49 @@
     background-color: $body-bg;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     z-index: -1;
   }
 }
 
-.form-control{
+.form-control {
   border-color: theme-color('primary');
 }
-
 
 
 /* CSS used here will be applied after bootstrap.css */
 
 .dropdown1 {
-  display:inline-block;
-  margin-left:20px;
-  padding:10px;
+  display: inline-block;
+  margin-left: 20px;
+  padding: 10px;
 }
 
 .notifications {
+  max-width: 90vw;
+  @include media-breakpoint-up(sm) {
   min-width:375px;
-  max-width:90vw;
+    //display: none !important;
+  }
 }
 
 .notifications-wrapper {
-  overflow:auto;
-  max-height:300px;
+  overflow: auto;
+  max-height: 300px;
 }
 
 .dropdown-menu.divider {
-  margin:5px 0;
+  margin: 5px 0;
 }
 
 
 .notifications a.content {
-  text-decoration:none;
+  text-decoration: none;
 }
 
+.hidden {
+  display: none !important;
+}
+.fa-sm{
+  font-size: 0.6em;
+}

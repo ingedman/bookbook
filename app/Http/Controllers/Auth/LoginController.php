@@ -44,35 +44,57 @@ class LoginController extends Controller
     /**
      * Redirect the user to the GitHub authentication page.
      *
+     * @param $driver
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider($driver)
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver($driver)->redirect();
     }
 
     /**
      * Obtain the user information from GitHub.
      *
+     * @param $driver
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($driver)
     {
-        $oAuthUser = Socialite::driver('github')->user();
-
-        $user = User::where('provider_id',$oAuthUser->getId())->first();
-
-//        dd($user);
-        //TODO: Add nickname and avatar
-        if(!$user){
-            $user = User::create([
-                'name'=>$oAuthUser->getNickname(),
-                'email'=> $oAuthUser->getEmail(),
-                'provider_id'=> $oAuthUser->getId(),
-            ]);
+        try{
+        $oAuthUser = Socialite::driver($driver)->user();
+//        dd($oAuthUser );
+        }catch (\Exception $e){
+            return redirect()->route('login');
         }
 
-        Auth::login($user);
+        $existingUser =User::where('email', $oAuthUser->getEmail())->first();
+
+//        dd($user);
+
+
+        if ($existingUser) {
+            auth()->login($existingUser, true);
+        } else{
+//            $user = User::create([
+//                'name'=>$oAuthUser->getNickname(),
+//                'email'=> $oAuthUser->getEmail(),
+//                'provider_id'=> $oAuthUser->getId(),
+//            ]);
+            $newUser                    = new User;
+//            $newUser->{'provider_name'}     = $driver;
+            $newUser->{'provider_id'}       = $oAuthUser->getId();
+            $newUser->{'name'}              = $oAuthUser->getName() ?? $oAuthUser->getNickname();
+            $newUser->{'email'}             = $oAuthUser->getEmail();
+            $newUser->{'email_verified_at'} = now();
+
+            $avatar = $oAuthUser->getAvatar();
+            if ($avatar) $newUser->{'avatar'}= $avatar;
+
+            $newUser->save();
+
+            auth()->login($newUser, true);
+        }
+
         return redirect($this->redirectTo);
     }
 }

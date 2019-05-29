@@ -20,7 +20,7 @@ class CreateReviewsTable extends Migration
             $table->text('content');
             $table->integer('book_id');
             $table->integer('reviewer_id');
-            $table->integer('language_id');
+            $table->integer('language_id')->nullable();
             $table->boolean('is_flagged')->default(false);
             $table->timestamps();
         });

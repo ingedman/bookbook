@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 class RegisterTest extends DuskTestCase
 {
 //    use DatabaseMigrations;
-    /** @test */
+    /** @test-off */
     public function can_register_new_user()
     {
         $this->browse(function (Browser $browser) {

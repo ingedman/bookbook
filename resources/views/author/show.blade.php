@@ -4,54 +4,15 @@
     <div class=" border-bottom border-primary">
         {{-- profile header --}}
         <div class="row pb-4">
-            <div class="col  justify-content-start flex-grow-0 d-inline-block">
-                <img class="rounded-circle" src="{{ asset('img/man.jpg') }}" width="120" alt="profile picture">
-            </div>
             <div class="col d-flex flex-column justify-content-center">
-                <h3 class="profile-name mb-2">Gamal Fakhry</h3>
-
-
+                <h3 class="profile-name mb-2">{{ $author->{'name'} }}</h3>
             </div>
         </div>
         {{-- End of profile header --}}
 
         {{-- Actions section --}}
-        <div class="row">
-            <div class="col d-flex flex-column align-items-center">
-                <div>702k</div>
-                <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom"
-                        title="Like">
-                    <i class="far fa-thumbs-up line-height-initial"></i>
-                </button>
-            </div>
-            <div class="col d-flex flex-column align-items-center">
-                <div>500</div>
-                <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom"
-                        title="Dislike">
-                    <i class="far fa-thumbs-down line-height-initial"></i>
-                </button>
-            </div>
-            <div class="col d-flex flex-column align-items-center justify-content-end ">
-                <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom"
-                        title="Share">
-                    <i class="fas fa-share-alt line-height-initial"></i>
-                </button>
-            </div>
-            <div class="col d-flex flex-column align-items-center justify-content-end">
-                <div class="btn-group dropleft">
-                    <button class="btn" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-h  line-height-initial "></i>
-
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-                        <a class="dropdown-item" href="#">Report</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <author-card-controls :author="{{$author->{'controlsJson'} }}"
+                              index="{{ $author->{'id'} }}"></author-card-controls>
         {{-- End of Actions section --}}
     </div>
 
@@ -62,113 +23,99 @@
             <div class="btn-group mt-2">
                 <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                    order by popularity
+                    <span>order by</span>
+                    <span>
+
+                        @switch(request('sort'))
+                            @case('popular')
+                            popularity
+                            @break
+
+                            @case('title')
+                            title
+                            @break
+
+                            @default
+                            date
+                        @endswitch
+                        </span>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">date</a>
-                    <a class="dropdown-item" href="#">popularity</a>
-
+                    <a class="dropdown-item"
+                       href="{{ route(Route::currentRouteName() , ['id'=>$author->{'id'},'sort'=>'created_at','page'=>request('page')]) }}"
+                    >date</a>
+                    <a class="dropdown-item"
+                       href="{{ route(Route::currentRouteName() , ['id'=>$author->{'id'},'sort'=>'popular','page'=>request('page')]) }}"
+                    >popularity</a>
+                    <a class="dropdown-item"
+                       href="{{ route(Route::currentRouteName() , ['id'=>$author->{'id'},'sort'=>'title','page'=>request('page')]) }}"
+                    >title</a>
                 </div>
             </div>
-            <a href="#" class="btn btn-link">show all</a>
-
+            {{--<a href="#" class="btn btn-link">show all</a>--}}
         </div>
         <div class="pt-3">
-            <div class="row">
-                @for($i=0;$i<5;$i++)
-
+            <div class="">
+                @forelse($books as $book)
                     {{-- single book card --}}
-                    <div class="col-md-6 d-flex">
+                    <div class="d-flex">
                         <div class="card flex-grow-1">
                             <div class="card-body ">
-                                <h5 class="card-title mb-3">Card title</h5>
+                                <a href="{{ route('book', $book->{'slug'}) }}" class="no-underline">
+                                    <h5 class="card-title mb-3">{{ $book->{'title'} }}</h5>
+                                </a>
                                 <div class="row">
                                     <div class="col-6 d-flex  justify-content-center  align-items-center flex-grow-0 d-inline-block">
-                                        <img class="" src="{{ asset('img/book.jpg') }}" width="144" alt="book cover">
+                                        <a href="{{ route('book', $book->{'slug'}) }}" class="no-underline">
+                                            <img class="" src="{{ $book->{'coverUrl'} }}" width="144" alt="book cover">
+                                        </a>
                                     </div>
                                     <div class="col-6">
+                                        <div class="py-2">
+                                            <div class=" font-weight-bold">
 
-                                        <div class="row py-2">
-                                            <div class="col-sm-6 font-weight-bold">Authors:</div>
-                                            <div class="col-sm-6 pl-4 pl-sm-3">
-                                                <div class="">Leo Tolstoy</div>
-                                                <div class="">Adam Smith</div>
+                                                <div class=" font-weight-bold">
+                                                    {{ Str::plural('Author', count($book->{'authors'} )) }}:
+                                                </div>
                                             </div>
+                                            @foreach($book->{'authors'} as $author)
+                                                <div class="pl-4">
+                                                    <a href="{{route('author',$author->{'id'})}}"
+                                                       class="">{{$author->name}}</a>
+                                                </div>
+                                            @endforeach
                                         </div>
-                                        <div class="row py-2">
-                                            <div class="col-sm-6 font-weight-bold">Genre:</div>
-                                            <div class="col-sm-6 pl-4 pl-sm-3"> Horror</div>
+                                        <div class=" py-2">
+                                            <div class=" font-weight-bold">Genre:</div>
+                                            <div class=" pl-4 ">{{$book->{'genre'} }}</div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-body pb-0 flex-grow-0">
-
+                            <div class="card-body py-0 flex-grow-0">
                                 {{-- book card actions --}}
-                                <div class="row">
-                                    <div class="col d-flex flex-column align-items-center">
-                                        <div>702k</div>
-                                        <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom"
-                                                title="Like">
-                                            <i class="far fa-thumbs-up line-height-initial"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col d-flex flex-column align-items-center">
-                                        <div>500</div>
-                                        <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom"
-                                                title="Dislike">
-                                            <i class="far fa-thumbs-down line-height-initial"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col d-flex flex-column align-items-center">
-                                        <div>500</div>
-                                        <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom"
-                                                title="Comments">
-                                            <i class="far fa-comment line-height-initial"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col d-flex flex-column align-items-center justify-content-end hidden-sm-down">
-                                        <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom"
-                                                title="Share">
-                                            <i class="fas fa-share-alt line-height-initial"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col d-flex flex-column align-items-center justify-content-end hidden-sm-down">
-                                        <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom"
-                                                title="Read later">
-                                            <i class="far fa-bookmark line-height-initial"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col d-flex flex-column align-items-center justify-content-end">
-                                        <div class="btn-group dropleft">
-                                            <button class="btn" type="button" id="dropdownMenuButton"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-h  line-height-initial "></i>
-
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item hidden-sm-up" href="#">share</a>
-                                                <a class="dropdown-item hidden-sm-up" href="#">Read later</a>
-                                                <a class="dropdown-item" href="#">Report</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <book-card-controls :book="{{$book->{'controlsJson'} }}"
+                                                    index="{{$book->{'id'} }}"
+                                ></book-card-controls>
                                 {{-- End of book card actions --}}
-
-
                             </div>
                         </div>
                     </div>
                     {{-- End of single book card --}}
-                @endfor
-
+                @empty
+                    This Author has no books.
+                @endforelse
+                <div class="d-flex justify-content-center my-4">
+                    {{ $books->links() }}
+                </div>
             </div>
-
         </div>
-
     </div>
     {{-- End of books section --}}
+@endsection
 
+@section('aside')
+    {{-- aside section --}}
+    @include('partials.side_bar_recommendation',compact('recommendation'))
+    {{-- End of aside section --}}
 @endsection

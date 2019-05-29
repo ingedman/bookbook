@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Review;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,13 +25,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = \Auth::user();
+
 
         $feed = \Auth::user()
             ->feed()
             ->with('reviewer', 'book')
-            ->get();
+            ->paginate(20);
 
-        return view('home', compact('feed'));
+        $recommendation = [];
+        $recommendation['users']=User::inRandomOrder()->take(3)->get();
+        $recommendation['reviews']= Review::inRandomOrder()->take(3)->get();
+//        dump($recommended_users);
+//        dd($recommended_reviews);
+        return view('home', compact('feed','recommendation'));
     }
+
+
 }

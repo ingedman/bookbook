@@ -17,7 +17,11 @@ $factory->define(App\Review::class, function (Faker $faker) {
             return factory(App\Language::class)->create()->id;
         },
         'title' => $title,
-        
-        'content' => $faker->paragraphs($nb = 4, $asText = true)
+        'content' => function () use ( $faker ) {
+            $content = '';
+            $content .= '<h2>'.$faker->sentence.'</h2>';
+            $content .= '<p>'.$faker->paragraphs($nb = 4, $asText = true) .'</p>';
+            return $content;
+        },
     ];
 });

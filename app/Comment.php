@@ -41,4 +41,31 @@ class Comment extends Model
     {
         return count($this->replies);
     }
+
+    public function getCommentControlsAttribute()
+    {
+        $comment = [];
+        $comment['comment'] = $this->{'comment'};
+        $comment['id'] = $this->{'id'};
+        $comment['date'] = $this->{'updated_at'}->diffForHumans();
+        $comment['user']['name'] = $this->{'commenter'}->{'name'};
+        $comment['user']['photo'] = $this->{'commenter'}->{'avatarUrl'};
+        $comment['likes']['count'] = count($this->{'likes'});
+        $comment['likes']['already'] = count($this->{'likes'}->where('user_id', \Auth::user()->{'id'})) > 0;
+
+        $comment['dislikes']['count'] = count($this->{'dislikes'});
+        $comment['dislikes']['already'] = count($this->{'dislikes'}->where('user_id', \Auth::user()->{'id'})) > 0;
+
+        $comment['likeUrl'] = route('comment.like', $this->{'id'});
+        $comment['dislikeUrl'] = route('comment.dislike', $this->{'id'});
+        $comment['reportUrl'] = route('comment.report', $this->{'id'});
+
+        if (!$this->{'parent'}){
+        $comment['replies']['count'] = $this->{'repliesCount'};
+        $comment['replies']['url'] = route('replies', $this->{'id'});
+        }
+
+        return $comment;
+    }
+
 }
