@@ -39,12 +39,11 @@
 </template>
 
 <script>
-    import ReportModal from './ReportModal'
     import ShareButtons from './buttons/ShareButtons'
 
     export default {
         props: ['user', 'index'],
-        components: {ReportModal, ShareButtons},
+        components: { ShareButtons},
         data() {
             return {
                 followers: this.user.followers,

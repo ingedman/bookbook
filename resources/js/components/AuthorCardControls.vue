@@ -21,13 +21,19 @@
 </template>
 
 <script>
-    import ReportModal from './ReportModal'
     import ShareButtons from './buttons/ShareButtons'
 
-
     export default {
-        props: ['author', 'index'],
-        components: {ReportModal,ShareButtons},
+        props:{
+            author:{
+                type:Object,
+                required:true,
+            },
+            index:{
+                type:String,
+            }
+        },
+        components: {ShareButtons},
         data() {
             return {
                 reportContent: '',
@@ -38,7 +44,6 @@
                 this.$modal.show('report', {url: this.author.reportUrl})
             },
         },
-
     }
 </script>
 

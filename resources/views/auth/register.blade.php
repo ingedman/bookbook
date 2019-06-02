@@ -62,7 +62,10 @@
             </div>
             <div class="form-group py-1 row mb-0">
                 <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit"
+                            class="btn btn-primary"
+                            dusk="register-form-button"
+                    >
                         {{ __('Register') }}
                     </button>
                 </div>

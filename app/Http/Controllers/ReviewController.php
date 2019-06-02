@@ -30,8 +30,6 @@ class ReviewController extends Controller
      */
     public function index()
     {
-
-
         $feed = \Auth::user()
             ->feed()
             ->with('reviewer', 'book')
@@ -129,6 +127,8 @@ class ReviewController extends Controller
     {
         $review = Review::where('slug', $slug)->with('book')->firstOrFail();
 
+        // todo: fix Gates problem with voyager
+
         if (\Gate::allows('edit-review', $review)) {
             $save_url = route('review.update', $review->{'id'});
 
@@ -187,80 +187,8 @@ class ReviewController extends Controller
      */
     public function destroy(Review $review)
     {
-        //
+        // todo: add review delete button
     }
-
-//    public function like(Review $review)
-//    {
-//
-//        $alreadyLiked = $review->{'likes'}->contains(function ($like) {
-//            return $like->user_id == \Auth::user()->{'id'};
-//        });
-//
-//        if ($alreadyLiked) {
-//            $review->likes()->where('user_id', \Auth::user()->{'id'})->delete();
-//            $already = false;
-//        } else {
-//
-//            $alreadyDisliked = $review->{'dislikes'}->contains(function ($like) {
-//                return $like->user_id == \Auth::user()->{'id'};
-//            });
-//
-//            if ($alreadyDisliked) {
-//                $review->dislikes()->where('user_id', \Auth::user()->{'id'})->delete();
-//            }
-//            $review->likes()->create(['user_id' => \Auth::user()->{'id'}, 'is_like' => true]);
-//            $already = true;
-//        }
-//
-//        $review->refresh();
-//
-//        return response()->json([
-//            'likes' => [
-//                'count' => count($review->{'likes'}),
-//                'already' => $already,
-//            ],
-//            'dislikes' => [
-//                'count' => count($review->{'dislikes'}),
-//                'already' => false,
-//            ],
-//        ]);
-//    }
-//
-//    public function dislike(Review $review)
-//    {
-//        $alreadyDisliked = $review->{'dislikes'}->contains(function ($like) {
-//            return $like->user_id == \Auth::user()->{'id'};
-//        });
-//
-//        if ($alreadyDisliked) {
-//            $review->dislikes()->where('user_id', \Auth::user()->{'id'})->delete();
-//            $already = false;
-//        } else {
-//
-//            $alreadyLiked = $review->{'likes'}->contains(function ($like) {
-//                return $like->user_id == \Auth::user()->{'id'};
-//            });
-//
-//            if ($alreadyLiked) {
-//                $review->likes()->where('user_id', \Auth::user()->{'id'})->delete();
-//            }
-//            $review->dislikes()->create(['user_id' => \Auth::user()->{'id'}, 'is_like' => false]);
-//            $already = true;
-//
-//        }
-//        $review->refresh();
-//        return response()->json([
-//            'likes' => [
-//                'count' => count($review->{'likes'}),
-//                'already' => false,
-//            ],
-//            'dislikes' => [
-//                'count' => count($review->{'dislikes'}),
-//                'already' => $already,
-//            ],
-//        ]);
-//    }
 
 
 }

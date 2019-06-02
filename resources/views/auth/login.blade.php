@@ -57,7 +57,10 @@
 
             <div class="form-group py-1 row mb-0 ">
                 <div class="col-md-6 offset-md-4 d-flex justify-content-between">
-                    <button type="submit" class="btn btn-primary rounded-pill  py-1 px-4">
+                    <button type="submit"
+                            class="btn btn-primary rounded-pill  py-1 px-4"
+                            dusk="login-form-button"
+                    >
                         {{ __('Login') }}
                     </button>
 

@@ -93,9 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-/**
- * Load scripts for master page
- */
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'E:\\project\\xamp\\htdocs\\bookbook\\resources\\js\\master.js'");
 
 /***/ }),
 

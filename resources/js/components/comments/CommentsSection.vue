@@ -9,7 +9,7 @@
 
     import CommentCreate from './CommentCreate'
     import Comment from './Comment'
-    import {Bus} from "../bus";
+    import {Bus} from "../../bus";
 
 
     export default {

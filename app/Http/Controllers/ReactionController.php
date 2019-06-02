@@ -3,13 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 
 class ReactionController extends Controller
 {
-    public function like(Model $model)
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
+        $this->middleware('auth');
+    }
 
+
+    /**
+     * Like logic for eloquent model.
+     *
+     * @param Model $model
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function likeModel(Model $model)
+    {
+        logger('before refresh',[$model]);
         $alreadyLiked = $model->{'likes'}->contains(function ($like) {
             return $like->user_id == \Auth::user()->{'id'};
         });
@@ -30,21 +46,28 @@ class ReactionController extends Controller
             $already = true;
         }
 
-        $model->refresh();
+        $model->refresh()->loadCount(['likes','dislikes']);
+
 
         return response()->json([
             'likes' => [
-                'count' => count($model->{'likes'}),
+                'count' => $model->{'likes_count'},
                 'already' => $already,
             ],
             'dislikes' => [
-                'count' => count($model->{'dislikes'}),
+                'count' => $model->{'dislikes_count'},
                 'already' => false,
             ],
         ]);
     }
 
-    public function dislike(Model $model)
+    /**
+     * dislike logic for eloquent model.
+     *
+     * @param Model $model
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function dislikeModel(Model $model)
     {
         $alreadyDisliked = $model->{'dislikes'}->contains(function ($like) {
             return $like->user_id == \Auth::user()->{'id'};
@@ -69,35 +92,62 @@ class ReactionController extends Controller
         $model->refresh();
         return response()->json([
             'likes' => [
-                'count' => count($model->{'likes'}),
+                'count' => $model->{'likes'}->count(),
                 'already' => false,
             ],
             'dislikes' => [
-                'count' => count($model->{'dislikes'}),
+                'count' => $model->{'dislikes'}->count(),
                 'already' => $already,
             ],
         ]);
     }
 
+    /**
+     * @param \App\Review $review
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function likeReview(\App\Review $review){
-        return $this->like($review);
+        return $this->likeModel($review);
     }
+
+    /**
+     * @param \App\Review $review
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function dislikeReview(\App\Review $review){
-        return $this->dislike($review);
+        return $this->dislikeModel($review);
     }
 
+    /**
+     * @param \App\Book $book
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function likeBook(\App\Book $book){
-        return $this->like($book);
-    }
-    public function dislikeBook(\App\Book $book){
-        return $this->dislike($book);
+        return $this->likeModel($book);
     }
 
-    public function likeComment(\App\Comment $comment){
-        return $this->like($comment);
+    /**
+     * @param \App\Book $book
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function dislikeBook(\App\Book $book){
+        return $this->dislikeModel($book);
     }
+
+    /**
+     * @param \App\Comment $comment
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function likeComment(\App\Comment $comment){
+        return $this->likeModel($comment);
+    }
+
+    /**
+     * @param \App\Comment $comment
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function dislikeComment(\App\Comment $comment){
-        return $this->dislike($comment);
+        return $this->dislikeModel($comment);
     }
 
 

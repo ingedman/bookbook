@@ -107,10 +107,16 @@ Route::get('login/{driver}/callback', 'Auth\LoginController@handleProviderCallba
     ->where('driver', implode('|', config('auth.socialite.drivers')));
 
 
-// todo: add admin pages
-//Route::view('adminlte', 'layouts.master');
-
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+});
+
+
+// trying things out
+
+Route::get('testing',function(){
+
+    $variable =\App\Review::where('id',1)->first()->controlsJson;
+    return view('test',compact('variable'));
 });

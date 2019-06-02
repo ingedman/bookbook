@@ -17,16 +17,18 @@ class AuthorController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * @param Request $request
+     * @param Author $author
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show(Request $request, Author $author)
     {
-
         $allowableSort = ['title', 'created_at', 'id'];
         $sort = $request->input('sort', 'id');
         $books = $author->books()->withCount('likes');
-
         if ($sort === 'popular') {
             $books = $books->orderBy('likes_count','DESC');
-
         } elseif (in_array($sort, $allowableSort)) {
             $books = $books->orderBy($sort);
         }

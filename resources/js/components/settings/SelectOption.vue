@@ -39,7 +39,11 @@
             </div>
         </div>
         <div class="col flex-grow-0 settings-option-action">
-            <a @click.prevent="toggleEditMode" href="#" role="button"><i class="fas fa-edit"></i></a>
+            <a @click.prevent="toggleEditMode"
+               href="#"
+               role="button"
+               :dusk="`setting-edit-button-${option.name}`"
+            ><i class="fas fa-edit"></i></a>
         </div>
         <!-- End of single settings option -->
     </div>

@@ -20,36 +20,7 @@ class UserController extends Controller
     }
 
 
-    /**
-     * Display user list of followers.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function followers()
-    {
-        $users = \Auth::user()->followers()->paginate(20);
-        $emptyMsg = "Nobody is following you right now";
-        $recommendation = [];
-        $recommendation['users'] = User::inRandomOrder()->take(3)->get();
-        $recommendation['reviews'] = \App\Review::inRandomOrder()->take(3)->get();
 
-        return view('user.followers', compact('users', 'emptyMsg', 'recommendation'));
-    }
-
-    /**
-     * Display user list page of a user.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function following()
-    {
-        $users = \Auth::user()->followings()->paginate(20);
-        $emptyMsg = "You are not following any on right now";
-        $recommendation = [];
-        $recommendation['users'] = User::inRandomOrder()->take(3)->get();
-        $recommendation['reviews'] = \App\Review::inRandomOrder()->take(3)->get();
-        return view('user.followers', compact('users', 'emptyMsg', 'recommendation'));
-    }
 
     /**
      * Display profile page of a user.
@@ -114,7 +85,38 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified user from storage.
+     * Display user list of followers.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function followers()
+    {
+        $users = \Auth::user()->followers()->paginate(20);
+        $emptyMsg = "Nobody is following you right now";
+        $recommendation = [];
+        $recommendation['users'] = User::inRandomOrder()->take(3)->get();
+        $recommendation['reviews'] = \App\Review::inRandomOrder()->take(3)->get();
+
+        return view('user.followers', compact('users', 'emptyMsg', 'recommendation'));
+    }
+
+    /**
+     * Display user list page of a user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function following()
+    {
+        $users = \Auth::user()->followings()->paginate(20);
+        $emptyMsg = "You are not following any on right now";
+        $recommendation = [];
+        $recommendation['users'] = User::inRandomOrder()->take(3)->get();
+        $recommendation['reviews'] = \App\Review::inRandomOrder()->take(3)->get();
+        return view('user.followers', compact('users', 'emptyMsg', 'recommendation'));
+    }
+
+    /**
+     * Remove the specified user from database.
      *
      * @param Request $request
      * @return \Illuminate\Http\Response

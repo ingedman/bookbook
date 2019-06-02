@@ -44,7 +44,7 @@
     import CommentControls from './CommentControls'
     import Comment from './Comment'
     import CommentCreate from './CommentCreate'
-    import {Bus} from "../bus";
+    import {Bus} from "../../bus";
 
     export default {
         name: 'Comment',

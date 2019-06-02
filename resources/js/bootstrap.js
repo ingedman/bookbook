@@ -10,9 +10,7 @@ window._ = require('lodash');
 try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
-
     require('bootstrap');
-    require('admin-lte');
 
     /**
      * enable tooltips in bootstrap
@@ -20,7 +18,6 @@ try {
     window.$(function () {
         window.$('[data-toggle="tooltip"]').tooltip()
     })
-
 } catch (e) {}
 
 /**

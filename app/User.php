@@ -40,22 +40,34 @@ class User extends \TCG\Voyager\Models\User
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function reports()
     {
         return $this->morphMany(Report::class, 'reportable');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function reported()
     {
         return $this->hasMany(Report::class, 'reporter_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
     public function languages()
     {
         return $this->morphToMany(Language::class, 'languageable')
             ->withPivot('is_primary');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
     public function nativeLanguage()
     {
 
@@ -65,21 +77,33 @@ class User extends \TCG\Voyager\Models\User
             ->where('is_primary', true);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function reviews()
     {
         return $this->hasMany(Review::class, 'reviewer_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function reactions()
     {
         return $this->hasMany(Reaction::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function postedBooks()
     {
         return $this->hasMany(Book::class, 'poster_id');
@@ -94,16 +118,25 @@ class User extends \TCG\Voyager\Models\User
         return $this->belongsToMany(User::class, 'followers', 'followed_id', 'follower_id')->withTimestamps();
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function followings()
     {
         return $this->belongsToMany(User::class, 'followers', 'follower_id', 'followed_id')->withTimestamps();
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function readList()
     {
         return $this->belongsToMany(Review::class, 'bookmarks')->withTimestamps();
     }
 
+    /**
+     * @return mixed
+     */
     public function scopeFeed()
     {
         $userIds = $this->followings()->pluck('followed_id');
@@ -111,6 +144,9 @@ class User extends \TCG\Voyager\Models\User
         return Review::whereIn('reviewer_id', $userIds)->latest();
     }
 
+    /**
+     * @return false|string
+     */
     public function getControlsJsonAttribute()
     {
         $controlsJson = [];
@@ -128,6 +164,9 @@ class User extends \TCG\Voyager\Models\User
         return json_encode($controlsJson);
     }
 
+    /**
+     * @return mixed
+     */
     public function getFollowedAttribute(){
         return $this->{'followers'}->contains(\Auth::user());
     }
@@ -136,6 +175,9 @@ class User extends \TCG\Voyager\Models\User
 //        $this->{'photo'} = $path;
 //    }
 
+    /**
+     * @return mixed|string
+     */
     public function getAvatarUrlAttribute(){
         if( \Str::startsWith($this->{'avatar'} ,'http')){
             return $this->{'avatar'};

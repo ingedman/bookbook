@@ -6,10 +6,10 @@
                 <div class=" col-md-4 col-lg-3"><p class="h5 text-md-right">{{option.label}}</p></div>
                 <div class="col-sm">
                     <div v-if="!editMode">
-                        <div  class="">{{item}}</div>
+                        <div class="">{{item}}</div>
                     </div>
                     <div v-else class="">
-                        <input  :type="option.type" class="form-control" :name="option.name"  v-model="item" >
+                        <input :type="option.type" class="form-control" :name="option.name" v-model="item">
 
                         <button type="submit" class="btn btn-primary" @click.prevent="save">Save</button>
 
@@ -18,7 +18,12 @@
             </div>
         </div>
         <div class="col flex-grow-0 settings-option-action">
-            <a @click.prevent="toggleEditMode" href="#" role="button"><i class="fas fa-edit"></i></a>
+            <a @click.prevent="toggleEditMode"
+               href="#"
+               role="button"
+               :dusk="`setting-edit-button-${option.name}`"
+
+            ><i class="fas fa-edit"></i></a>
         </div>
         <!-- End of single settings option -->
     </div>
@@ -26,24 +31,24 @@
 
 <script>
     export default {
-        name:'TextOption',
+        name: 'TextOption',
         props: ['option'],
         data() {
             return {
                 item: this.option.item,
-                tmpItem:'',
+                tmpItem: '',
                 editMode: false
             }
         },
-        methods:{
-            toggleEditMode(){
+        methods: {
+            toggleEditMode() {
                 if (!this.editMode) {
                     /*
                      * clone the item value to a temporary variable
                      * to revert back in case of cancellation
                      */
                     this.tmpItem = this.item;
-                }else{
+                } else {
                     /*
                      * revert the item value back  to a original value
                      */
@@ -51,7 +56,7 @@
                 }
                 this.editMode = !this.editMode
             },
-            save(){
+            save() {
                 axios({
                     method: 'post',
                     url: window.location.href,
@@ -60,15 +65,15 @@
                     },
                 }).then((res) => {
                     console.log(res.data)
-                    if (res.data.success){
+                    if (res.data.success) {
                         this.tmpItem = this.item
                         this.editMode = false
 
                         this.$toasted.show("Your has been updated", {
                             theme: "toasted-primary",
                             position: "top-right",
-                            duration : 5000,
-                            action : {
+                            duration: 5000,
+                            action: {
                                 text: 'Close',
                                 onClick: (e, toastObject) => {
                                     toastObject.goAway(0);
@@ -80,8 +85,6 @@
                     console.log(err)
                 })
             }
-        },
-        computed:{
         },
         mounted() {
             console.log(this.option)

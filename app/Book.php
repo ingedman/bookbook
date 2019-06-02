@@ -60,8 +60,7 @@ class Book extends Model
 
         return $this
             ->morphToMany(Language::class, 'languageable')
-            ->withPivot('is_primary')
-            ->where('is_primary', true);
+            ->wherePivot('is_primary', true);
     }
 
     public function likes()
@@ -79,25 +78,39 @@ class Book extends Model
         $this->attributes['title'] = trim($val);
     }
 
+    /**
+     * get json object to use in vue card controls component
+     *
+     * @return false|string
+     */
     public function getControlsJsonAttribute()
     {
-
+        $this->loadCount(['likes','dislikes']);
         $controlsJson = [];
 
-        $controlsJson['comments_url'] = '#comments';
-        $controlsJson['likes']['count'] = count($this->likes);
-        $controlsJson['likes']['already'] = count($this->likes->where('user_id', \Auth::user()->{'id'})) > 0;
-        $controlsJson['dislikes']['count'] = count($this->dislikes);
-        $controlsJson['dislikes']['already'] = count($this->dislikes->where('user_id', \Auth::user()->{'id'})) > 0;
-//        $controlsJson['comments']['count'] = $this->{'commentsCount'};
-        $controlsJson['url'] = route('book', $this->{'slug'});
+        // reactions info
+        $controlsJson['likes']['count'] = $this->{'likes_count'};
+        $controlsJson['likes']['already'] = $this->{'likes'}->contains(function ($like) {
+            return $like->user_id == \Auth::user()->{'id'};
+        });
+        $controlsJson['dislikes']['count'] = $this->{'dislikes_count'};
+        $controlsJson['dislikes']['already'] = $this->{'dislikes'}->contains(function ($like) {
+            return $like->user_id == \Auth::user()->{'id'};
+        });
 
+        // url
+        $controlsJson['url'] = route('book', $this->{'slug'});
         $controlsJson['likeUrl'] = route('book.like', $this->{'id'});
         $controlsJson['dislikeUrl'] = route('book.dislike', $this->{'id'});
         $controlsJson['reportUrl'] = route('book.report', $this->{'id'});
-
         return json_encode($controlsJson);
     }
+
+    /**
+     * get the url of the cover image
+     *
+     * @return mixed|string
+     */
     public function getCoverUrlAttribute(){
         if( \Str::startsWith($this->{'cover'} ,'http')){
             return $this->{'cover'};

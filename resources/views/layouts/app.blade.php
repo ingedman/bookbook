@@ -87,8 +87,14 @@
                         ></notifications-drop-down>
 
                         <li class="nav-item dropdown ">
-                            <button class="btn nav-link focus-shadow-0" type="button" id="navbarDropdown" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
+                            <button class="btn nav-link focus-shadow-0"
+                                    type="button"
+                                    id="navbarDropdown"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    dusk="navbar-profile-avatar"
+                            >
 
                                 <profile-picture src="{{ Auth::user()->{'avatarUrl'} }}"
                                                  width="30"

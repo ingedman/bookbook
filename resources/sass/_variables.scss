@@ -17,6 +17,7 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+$gray: rgba(0, 0, 0, 0.38);
 
 $theme-colors: (
         "primary": #010102,
@@ -24,4 +25,5 @@ $theme-colors: (
         "danger": #AD005F,
         "success":#1AAF00,
         "warning":#F2E82E,
+        "gray":rgba(0, 0, 0, 0.38)
 );

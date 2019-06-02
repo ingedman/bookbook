@@ -11,7 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
         $this->call(LanguageSeeder::class);
+
+
 
         factory(App\User::class)->create([
             'name' => 'Eslam Fakhry',
@@ -21,23 +24,6 @@ class DatabaseSeeder extends Seeder
         factory(App\User::class, 100)->create();
 
 
-//        factory(App\Author::class, 100)->create([
-//            'language_id' => function(){
-//                return \App\Language::inRandomOrder()->first()->id;
-//            }
-//        ]);
-
-//        factory(App\Book::class, 100)->create([
-//            'poster_id' => function () {
-//                return \App\User::inRandomOrder()->first()->id;
-//            }
-//        ]);
-
-//        foreach (App\Book::all() as $book) {
-//            $authorNum = rand(1, 4);
-//            $authorIds = \App\Author::inRandomOrder()->take($authorNum)->pluck('id');
-//            $book->authors()->sync($authorIds);
-//        }
         $this->call(BookSeeder::class);
 
 
@@ -54,8 +40,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\User::find(1)->followings()->sync([2, 3, 4, 8, 10, 20, 8]);
-
-
 
     }
 }

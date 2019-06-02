@@ -26,15 +26,13 @@
 </template>
 
 <script>
-    import LikeButtons from './buttons/LikeButtons'
+    import LikeButtons from '../buttons/LikeButtons'
 
     export default {
         props: ['comment', 'reply'],
         components: {LikeButtons},
-
         data() {
             return {
-
                 reportContent: '',
             }
         },

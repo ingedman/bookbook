@@ -37,67 +37,115 @@ class Review extends Model
         ];
     }
 
+    /**
+     * Get the book the was reviewed by a review
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function book()
     {
         return $this->belongsTo(Book::class);
     }
 
+    /**
+     * Get the reviewer of a review.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function reviewer()
     {
         return $this->belongsTo(User::class, 'reviewer_id');
     }
 
+    /**
+     * Get the comments of a review.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
     }
 
+    /**
+     * get the language of a review.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function language()
     {
         return $this->belongsTo(Language::class);
     }
 
+    /**
+     * Get the reports of a review.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function reports()
     {
         return $this->morphMany(Report::class, 'reportable');
     }
 
+    /**
+     * get the likes of a review.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function likes()
     {
         return $this->morphMany(Reaction::class, 'reactionable')->where('is_like', '=', true);
     }
 
+    /**
+     * get the dislikes of a review
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function dislikes()
     {
         return $this->morphMany(Reaction::class, 'reactionable')->where('is_like', '=', false);
     }
 
-    public function getCommentsCountAttribute()
-    {
-        $comments = $this->comments()->withCount('replies')->get();
-        if (count($comments) > 0) {
-            return $comments->reduce(function ($carry, $item) {
-                return $carry + $item->replies_count + 1;
-            });
-        } else {
-            return 0;
-        }
-    }
+//    /**
+//     * Get the total number of comment of a review.
+//     *
+//     * @return int|mixed
+//     */
+//    public function getCommentsCountAttribute()
+//    {
+//        $comments = $this->comments()->withCount('replies')->get();
+//        if (count($comments) > 0) {
+//            return $comments->reduce(function ($carry, $item) {
+//                return $carry + $item->replies_count + 1;
+//            });
+//        } else {
+//            return 0;
+//        }
+//    }
 
+    /**
+     * get json object to use in vue card controls component
+     *
+     * @return false|string
+     */
     public function getControlsJsonAttribute()
     {
+        $this->loadCount(['likes','dislikes','comments']);
 
         $controlsJson = [];
 
-        $controlsJson['likes']['count'] = $this->{'likes'}->count();
+        // reactions info
+        $controlsJson['likes']['count'] = $this->{'likes_count'};
         $controlsJson['likes']['already'] = $this->{'likes'}->contains(function ($like) {
             return $like->user_id == \Auth::user()->{'id'};
         });
-        $controlsJson['dislikes']['count'] = $this->{'dislikes'}->count();
-        $controlsJson['dislikes']['already'] = $this->{'dislikes'}->contains(function ($like) {
-            return $like->user_id == \Auth::user()->{'id'};
+        $controlsJson['dislikes']['count'] = $this->{'dislikes_count'};
+        $controlsJson['dislikes']['already'] = $this->{'dislikes'}->contains(function ($dislike) {
+            return $dislike->user_id == \Auth::user()->{'id'};
         });
-        $controlsJson['comments']['count'] = $this->{'commentsCount'};
+
+        $controlsJson['comments']['count'] = $this->{'comments_count'};
         $controlsJson['bookmarked'] = \Auth::user()->{'readList'}->contains($this);
 
         // urls
@@ -112,17 +160,33 @@ class Review extends Model
     }
 
 
-
+    /**
+     * set the title of review.
+     *
+     * @param $val
+     */
     public function setTitleAttribute($val)
     {
         $this->attributes['title'] = trim($val);
     }
+
+    /**
+     * get cleaned html content from the review.
+     *
+     * @return mixed
+     */
     public function getPureContentAttribute()
     {
 
         return Purify::clean($this->{'content'});
     }
 
+
+    /**
+     * Get a preview of the content of review after removing html tags
+     *
+     * @return string
+     */
     public function getPreviewAttribute()
     {
         $text = '';

@@ -37,16 +37,14 @@
 </template>
 
 <script>
-    import ReportModal from './ReportModal'
     import ShareButtons from './buttons/ShareButtons'
     import BookmarkButton from './buttons/BookmarkButton'
-
     import LikeButtons from './buttons/LikeButtons'
 
 
     export default {
         props: ['review', 'index'],
-        components: {ReportModal, ShareButtons, BookmarkButton, LikeButtons},
+        components: { ShareButtons, BookmarkButton, LikeButtons},
         data() {
             return {
                 bookmarked: this.review.bookmarked,
