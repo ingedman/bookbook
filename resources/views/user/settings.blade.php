@@ -26,10 +26,7 @@
         @endforeach
 
         {{-- single settings option --}}
-        <form action="{{route('user.delete')}}" method="post" ref="deleteUserForm">
-            @csrf
-            <delete-user-button @delete_user="$refs.deleteUserForm.submit();"></delete-user-button>
-        </form>
+        @include('partials.delete_user_button')
         {{-- End of single settings option --}}
 
     </div>

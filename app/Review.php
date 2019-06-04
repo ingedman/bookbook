@@ -150,6 +150,7 @@ class Review extends Model
 
         // urls
         $controlsJson['url'] = route('review', $this->{'slug'});
+        $controlsJson['editUrl'] = route('review.edit', $this->{'slug'});
         $controlsJson['comments_url'] = route('review', $this->{'slug'}).'#comments';
         $controlsJson['likeUrl'] = route('review.like', $this->{'id'});
         $controlsJson['dislikeUrl'] = route('review.dislike', $this->{'id'});
@@ -203,5 +204,31 @@ class Review extends Model
             $text = \Str::limit($this->{'pureContent'} , $limit);
         }
         return $text;
+    }
+    /**
+     * Splits the given value.
+     *
+     * @param  string $value
+     * @return array
+     */
+    public function splitContent($value)
+    {
+        return explode('. ', $value);
+    }
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+//        dd($array);
+        // Applies Scout Extended default transformations:
+        $array = $this->transform($array);
+
+
+        return $array;
     }
 }

@@ -47,7 +47,6 @@
                         image: this.croppedImage
                     },
                 }).then((res) => {
-                    console.log(res.data)
                     if (res.data.success) {
                         Bus.$emit('pictureChanged', this.croppedImage);
                         this.$emit('close')
@@ -73,8 +72,6 @@
             imageChosen(event) {
                 const _this = this
                 const files = event.target.files
-                // let filename = files[0].name
-                // console.log(files[0])
                 const fileReader = new FileReader()
                 fileReader.readAsDataURL(files[0])
                 fileReader.onload = function () {

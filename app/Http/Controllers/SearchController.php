@@ -72,43 +72,47 @@ class SearchController extends Controller
 
                 $q = $request->input('q');
 //
-//                $books = Book::search($q)->take(3)->get()->map(function ($item) {
-//                    return [
-//                        'id' => $item->{'id'},
-//                        'url' => route('book', $item->{'slug'}),
-//                        'text' => $item->{'title'}
-//                    ];
+                $books = Book::search($q)->take(3)->get();
+
+                    dd($books);
+                    $books->map(function ($item) {
+                    return [
+                        'id' => $item->{'id'},
+                        'url' => route('book', $item->{'slug'}),
+                        'text' => $item->{'title'}
+                    ];
+                });
+
+                $reviews = Review::search($q)->take(3)->get()->map(function ($item) {
+                    return [
+                        'id' => $item->{'id'},
+                        'url' => route('review', $item->{'slug'}),
+                        'text' => $item->{'title'}
+                    ];
+                });
+
+                $users = User::search($q)->take(3)->get()->map(function ($item) {
+                    return [
+                        'id' => $item->{'id'},
+                        'url' => route('user.profile', $item->{'id'}),
+                        'text' => $item->{'name'}
+                    ];
+                });
+
+//                $models = \App\Search\Models::search($q)->get()->toArray();
+//                return response()->json(['books' => $models]);
+//dd($models);
+//                $books = array_filter($models, function ($model){
+//                    return get_class($model) === 'App\Book';
 //                });
 //
-//                $reviews = Review::search($q)->take(3)->get()->map(function ($item) {
-//                    return [
-//                        'id' => $item->{'id'},
-//                        'url' => route('review', $item->{'slug'}),
-//                        'text' => $item->{'title'}
-//                    ];
+//                $users = array_filter($models, function ($model){
+//                    return get_class($model) === 'App\User';
 //                });
 //
-//                $users = User::search($q)->take(3)->get()->map(function ($item) {
-//                    return [
-//                        'id' => $item->{'id'},
-//                        'url' => route('user.profile', $item->{'id'}),
-//                        'text' => $item->{'name'}
-//                    ];
+//                $reviews = array_filter($models, function ($model){
+//                    return get_class($model) === 'App\Review';
 //                });
-
-                $models = \App\Search\Models::search($q)->get()->toArray();
-
-                $books = array_filter($models, function ($model){
-                    return get_class($model) === 'App\Book';
-                });
-
-                $users = array_filter($models, function ($model){
-                    return get_class($model) === 'App\User';
-                });
-
-                $reviews = array_filter($models, function ($model){
-                    return get_class($model) === 'App\Review';
-                });
 
 
                 return response()->json([

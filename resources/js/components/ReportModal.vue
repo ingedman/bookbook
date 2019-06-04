@@ -39,7 +39,6 @@
         },
         methods: {
             beforeOpen(event) {
-                // console.log(event.params.url);
                 this.url = event.params.url
             },
             closeModal() {

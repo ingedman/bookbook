@@ -85,19 +85,18 @@ class ReviewController extends Controller
 
         $validator = \Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()]);
+            return redirect()->back()->with(['errors' => $validator->errors()]);
         }
 
-        Review::create([
+        $review = Review::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
             'reviewer_id' => \Auth::user()->{'id'},
             'language_id' => 1,
             'book_id' => $request->input('book_id'),
         ]);
-        return response()->json([
-            'success' => true
-        ]);
+        return redirect()->route('review',$review->{'slug'})->with(['status' => 'Review was created successfully']);
+
     }
 
     /**
@@ -127,9 +126,7 @@ class ReviewController extends Controller
     {
         $review = Review::where('slug', $slug)->with('book')->firstOrFail();
 
-        // todo: fix Gates problem with voyager
-
-        if (\Gate::allows('edit-review', $review)) {
+        if (\Gate::allows('update', $review)) {
             $save_url = route('review.update', $review->{'id'});
 
             $book = json_encode([
@@ -139,7 +136,7 @@ class ReviewController extends Controller
 
             return view('review.create', compact('review', 'save_url', 'book'));
         } else {
-            return redirect()->route('review', $slug);
+            return redirect()->route('review', $slug)->with('status','you can not edit this review');
         }
 
     }
@@ -165,17 +162,21 @@ class ReviewController extends Controller
 
         $validator = \Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()]);
+            return redirect()->back()->with(['errors' => $validator->errors()])->withInput();
+
+//            return response()->json(['errors' => $validator->errors()]);
         }
 
         $review = Review::where('slug', $slug)->firstOrFail();
-        if (\Gate::allows('edit-review', $review)) {
+        if (\Gate::allows('update', $review)) {
 
             $review->update($request->only(['title', 'content', 'book_id']));
 
-            return response()->json([
-                'success' => true
-            ]);
+            return redirect()->route('review',$review->{'slug'})->with(['status' => 'Review was updated successfully']);
+
+//            return response()->json([
+//                'success' => true
+//            ]);
         }
     }
 
@@ -187,7 +188,14 @@ class ReviewController extends Controller
      */
     public function destroy(Review $review)
     {
-        // todo: add review delete button
+        try{
+        $review->delete();
+        }catch (\Exception $e ){
+            dd(0);
+            return redirect()->route('home')->with('status','some thing went wrong');
+        }
+        return redirect()->route('home')->with('status','Review was deleted successfully');
+
     }
 
 

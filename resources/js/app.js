@@ -43,6 +43,9 @@ Vue.component('upload-modal', require('./components/upload/UploadModal.vue').def
 Vue.component('notifications-drop-down', require('./components/NotificationsDropDown.vue').default);
 Vue.component('notifications-item', require('./components/NotificationsItem.vue').default);
 
+Vue.component('status-toast', require('./components/StatusToast.vue').default);
+
+
 // Comment section
 Vue.component('comments-section', require('./components/comments/CommentsSection.vue').default);
 
@@ -61,27 +64,7 @@ Vue.component('search-input', require('./components/SearchInput.vue').default);
 Vue.component('report-model', require('./components/ReportModal.vue').default);
 
 // User widget
-Vue.component('user-profile-widget', require('./components/UserProfileWidget.vue').default);
 Vue.component('profile-picture', require('./components/partials/ProfilePicture.vue').default);
-
-
-
-
-
-//
-// /*
-//  create error and warning handlers
-//  */
-// Vue.config.errorHandler = function(err, vm, info) {
-//     console.error(`Error: ${err.toString()}\nInfo: ${info}`);
-// }
-//
-// Vue.config.warnHandler = function(msg, vm, trace) {
-//     console.warn(`Warn1: ${msg}\nTrace: ${trace}`);
-// }
-
-
-
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

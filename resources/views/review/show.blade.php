@@ -22,7 +22,13 @@
         {{-- End of review section --}}
 
         {{-- Actions section --}}
-        <review-card-controls index="{{$review->id}}" :review="{{$review->controlsJson}}"></review-card-controls>
+        <review-card-controls
+                index="{{$review->id}}"
+                :review="{{$review->controlsJson}}"
+                @can('update',$review)
+                :can_edit="true"
+                @endcan
+        ></review-card-controls>
         {{-- End of Actions section --}}
 
     </div>
@@ -78,13 +84,10 @@
                 img_url="{{ Auth::user()->{'avatarUrl'} }}"
                 review_id="{{ $review->{'id'} }}"
         ></comments-section>
-
-
     </div>
 @endsection
 
 @section('aside')
-
     {{-- aside section --}}
     @include('partials.side_bar_recommendation',compact('recommendation'))
     {{-- End of aside section --}}

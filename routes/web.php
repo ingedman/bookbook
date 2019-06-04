@@ -24,6 +24,7 @@ Route::get('reviews/{slug}', 'ReviewController@show')->name('review');
 Route::get('reviews/{review}/comments', 'CommentController@comments')->name('comments');
 Route::get('reviews/{slug}/edit', 'ReviewController@edit')->name('review.edit');
 Route::post('reviews/{slug}/edit', 'ReviewController@update')->name('review.update');
+Route::delete('reviews/{review}/delete', 'ReviewController@destroy')->name('review.delete');
 
 
 
@@ -112,11 +113,7 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
+//Route::get('posts/{id}/{author}', 'ReportController@try')->name('author.report');
 
-// trying things out
 
-Route::get('testing',function(){
-
-    $variable =\App\Review::where('id',1)->first()->controlsJson;
-    return view('test',compact('variable'));
-});
+Route::get('test-search','SearchController@all');

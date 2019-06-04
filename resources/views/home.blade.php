@@ -26,7 +26,7 @@
                         <div class="mt-0 mb-0">{{$feedItem->reviewer->name}}</div>
                     </a>
                     <a href="{{route('review',$feedItem->slug)}}" class="no-underline">
-                        <h5 class="mt-0 mb-0">{{$feedItem->title}}</h5>
+                        <h5 class="mt-0 mb-0 font-weight-bold">{{$feedItem->title}}</h5>
                     </a>
                 </div>
             </div>
@@ -44,8 +44,12 @@
             </div>
             <div class="card-footer">
                 {{-- Actions section --}}
-                <review-card-controls index="{{$feedItem->id}}"
-                                      :review="{{$feedItem->controlsJson}}"
+                <review-card-controls
+                        index="{{$feedItem->id}}"
+                        :review="{{$feedItem->controlsJson}}"
+                        @can('update',$feedItem)
+                        :can_edit="true"
+                        @endcan
                 ></review-card-controls>
                 {{-- End of Actions section --}}
 
@@ -57,16 +61,16 @@
 
         {{--<div class="media border-bottom border-primary pt-4">--}}
 
-            {{--<div class="media-body">--}}
-                {{--<div class="position-relative">--}}
+        {{--<div class="media-body">--}}
+        {{--<div class="position-relative">--}}
 
 
 
 
 
-                {{--</div>--}}
+        {{--</div>--}}
 
-            {{--</div>--}}
+        {{--</div>--}}
         {{--</div>--}}
 
 

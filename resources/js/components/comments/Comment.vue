@@ -68,18 +68,12 @@
                 }).then((res) => {
                     this.replies = res.data
                     this.showReplies = true;
-
-                    // console.log(res.data)
-                    // this.commentContent = ''
-
                 }).catch((err) => {
                     console.log('Error: ', err)
                 })
             },
             addComment(comment) {
-                // console.log(comment)
                 this.replies.push(comment)
-                // this.$forceUpdate();
 
             },
             scrollToCreate() {
@@ -89,12 +83,9 @@
             }
         },
         mounted() {
-            // todo: check if the problem here was solved
             const _this = this;
             if (!this.reply) {
-                console.log('comment mounted')
                 Bus.$on(`comment-${this.comment.id}`, function (comment) {
-                    console.log('from comment:',`comment-${_this.comment.id}`)
                     _this.addComment(comment)
 
                 })

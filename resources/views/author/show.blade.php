@@ -17,7 +17,7 @@
     </div>
 
     {{-- books section --}}
-    <div class="container min-vh-100">
+    <div class="container">
         <h3 class="mt-5">Books</h3>
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group mt-2">

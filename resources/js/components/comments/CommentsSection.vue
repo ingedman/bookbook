@@ -32,12 +32,11 @@
         },
         methods: {
             addComment(comment) {
-                // console.log(comment)
                 this.comments.unshift(comment)
             }
         },
         created() {
-            // fetch comment
+            // fetch comments
             axios({
                 method: 'get',
                 url: this.url,
@@ -50,11 +49,9 @@
             // real-time update of comments
             Echo.private(`review.comments.${this.review_id}`)
                 .listen('CommentEvent', (e) => {
-                    console.log(!e.comment.parent)
                     if (!e.comment.parent) {
                         this.addComment(e.comment)
                     } else {
-                        console.log('from section: ',`comment-${e.comment.parent}`)
                         Bus.$emit(`comment-${e.comment.parent}`, e.comment)
                     }
                 });

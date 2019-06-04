@@ -73,7 +73,6 @@
                             'q': this.searchText,
                         }
                     }).then((res) => {
-                        console.log(res.data)
                         this.books = res.data.books || []
                         this.reviews = res.data.reviews || []
                         this.users = res.data.users || []

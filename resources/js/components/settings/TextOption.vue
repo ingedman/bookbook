@@ -10,9 +10,7 @@
                     </div>
                     <div v-else class="">
                         <input :type="option.type" class="form-control" :name="option.name" v-model="item">
-
                         <button type="submit" class="btn btn-primary" @click.prevent="save">Save</button>
-
                     </div>
                 </div>
             </div>
@@ -22,7 +20,6 @@
                href="#"
                role="button"
                :dusk="`setting-edit-button-${option.name}`"
-
             ><i class="fas fa-edit"></i></a>
         </div>
         <!-- End of single settings option -->
@@ -64,7 +61,6 @@
                         [this.option.name]: this.item
                     },
                 }).then((res) => {
-                    console.log(res.data)
                     if (res.data.success) {
                         this.tmpItem = this.item
                         this.editMode = false
@@ -86,8 +82,6 @@
                 })
             }
         },
-        mounted() {
-            console.log(this.option)
-        }
+
     }
 </script>

@@ -103,7 +103,6 @@
         mounted() {
             Echo.private('App.User.' + this.user_id)
                 .notification((notification) => {
-                    console.log('Notification: ', notification);
                     this.notifications = this.notifications.concat(notification)
                     this.$toasted.show(notification.message, {
                         theme: "toasted-primary",

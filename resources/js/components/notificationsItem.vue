@@ -39,7 +39,6 @@
                     this.isLoading = true
                     axios.get(`/notifications/read/${this.notification.id}`)
                         .then((res) => {
-                            console.log(res.data)
                             if (res.data.success) {
                                 this.isRead = true
                                 this.isLoading = false
@@ -60,7 +59,6 @@
                         this.isLoading = true
                         axios.get(`/notifications/delete/${this.notification.id}`)
                             .then((res) => {
-                                console.log(res.data)
                                 if (res.data.success) {
                                     this.deleted = true
                                     this.isLoading = false

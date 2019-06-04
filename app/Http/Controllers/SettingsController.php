@@ -105,13 +105,8 @@ class SettingsController extends Controller
 
     public function uploadImage(Request $request)
     {
-        $messages = [
-            'image.required' => 'You should select an image',
-        ];
         $rules = [
             'image' => 'required',
-//            'image' => 'image|required|mimes:jpeg,png,jpg,gif,svg',
-
         ];
 
         $validator = \Validator::make($request->all(), $rules);
@@ -136,6 +131,5 @@ class SettingsController extends Controller
         return response()->json([
             'success' => false,
         ]);
-
     }
 }

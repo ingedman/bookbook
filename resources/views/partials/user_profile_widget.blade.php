@@ -5,7 +5,7 @@
                     alt="profile picture"></a>
     </div>
     <div class="col d-flex flex-column justify-content-center">
-        <a class="no-underline" href="{{route('user.profile',$user->{'id'})}}"><h3 class="profile-name mb-1">{{ $user->{'name'} }}</h3></a>
+        <a class="no-underline" href="{{route('user.profile',$user->{'id'})}}"><h6 class="profile-name mb-1">{{ $user->{'name'} }}</h6></a>
             @if(Auth::user()->isNot($user) )
 
 

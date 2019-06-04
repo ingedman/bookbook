@@ -26,6 +26,8 @@
                         <i class="fas fa-ellipsis-h  line-height-initial "></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+
+                        <a :href="review.editUrl" class="dropdown-item" role="button" v-if="can_edit">Edit</a>
                         <a class="dropdown-item" role="button" @click="openModal">Report</a>
 
 
@@ -43,7 +45,7 @@
 
 
     export default {
-        props: ['review', 'index'],
+        props: ['review', 'index','can_edit'],
         components: { ShareButtons, BookmarkButton, LikeButtons},
         data() {
             return {

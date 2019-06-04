@@ -6,13 +6,14 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Scout\Searchable;
+use TCG\Voyager\Traits\VoyagerUser;
 
 
 class User extends \TCG\Voyager\Models\User
 {
     use Notifiable;
     use Searchable;
-
+    use VoyagerUser;
     /**
      * The attributes that are mass assignable.
      *

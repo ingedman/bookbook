@@ -36,7 +36,10 @@
         {{-- End of Bio section --}}
 
         {{-- Actions section --}}
-        <user-card-controls index="{{$user->id}}" :user="{{$user->controlsJson}}"></user-card-controls>
+        <user-card-controls
+                index="{{$user->id}}"
+                :user="{{$user->controlsJson}}"
+        ></user-card-controls>
         {{-- End of Actions section --}}
 
     </div>
@@ -111,8 +114,13 @@
                         </div>
                         <div class="card-body pb-0 flex-grow-0">
                             {{-- Actions section --}}
-                            <review-card-controls index="{{$review->id}}"
-                                                  :review="{{$review->controlsJson}}"></review-card-controls>
+                            <review-card-controls
+                                    index="{{$review->id}}"
+                                    :review="{{$review->controlsJson}}"
+                                    @can('update',$review)
+                                    :can_edit="true"
+                                    @endcan
+                            ></review-card-controls>
                             {{-- End of Actions section --}}
 
                         </div>

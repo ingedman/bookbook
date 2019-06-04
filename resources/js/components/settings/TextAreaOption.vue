@@ -11,7 +11,6 @@
                     <div v-else class="">
                         <textarea :name="option.name" class="form-control" v-model="item"> </textarea>
                         <button type="submit" class="btn " @click.prevbtn-primaryent="save">Save</button>
-
                     </div>
                 </div>
             </div>
@@ -28,7 +27,6 @@
 </template>
 
 <script>
-
     export default {
         name: 'TextAreaOption',
         props: ['option'],
@@ -63,7 +61,6 @@
                         [this.option.name]: this.item,
                     },
                 }).then((res) => {
-                    console.log(res.data);
                     if (res.data.success){
                         this.tmpItem = this.item
                         this.editMode = false
@@ -85,8 +82,5 @@
             }
         },
         computed: {},
-        mounted() {
-            console.log(this.option)
-        },
     }
 </script>

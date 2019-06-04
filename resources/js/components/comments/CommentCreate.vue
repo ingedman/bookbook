@@ -23,7 +23,6 @@
 </template>
 
 <script>
-    // todo: solve new comment being liked
 
 
     export default {
@@ -46,7 +45,6 @@
                         'parent_id': this.parent
                     }
                 }).then((res) => {
-                    // console.log(res.data)
                     if (res.data.success) {
                         this.commentContent = ''
                         this.isActive= false
@@ -64,11 +62,6 @@
                             },
                         });
                     }
-
-
-
-
-
                 }).catch((err) => {
                     console.log('Error: ', err)
                 })

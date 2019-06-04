@@ -1115,15 +1115,32 @@ class BookSeeder extends Seeder
         );
 
         foreach ($books as $book) {
-            // todo: add languages
-            $author=factory(App\Author::class)->create([
-                'name' => $book['author'],
-                'language_id' => function () {
-                    return \App\Language::inRandomOrder()->first()->id;
-                }
-            ]);
 
-            $createdBook =factory(App\Book::class)->create([
+            $languageNames = explode(',', $book['language']);
+            $languages = [];
+            foreach ($languageNames as $name){
+                $language = \App\Language::where('name',$name)->first();
+                if ($language){
+                    $languages[]=$language;
+                }
+            }
+
+            $author = \App\Author::where('name',$book['author'])->first();
+
+            if(! $author){
+                $author = factory(App\Author::class)->create([
+                    'name' => $book['author'],
+                    'language_id' => function () {
+                        if (empty($languages)){
+                            return \App\Language::where('name','English')->first()->id;
+                        }
+                        return $languages[0]->id;
+                    }
+                ]);
+            }
+
+
+            $createdBook = factory(App\Book::class)->create([
                 'title' => $book['title'],
                 'year' => $book['year'],
                 'cover' => $book['imageLink'],
@@ -1131,6 +1148,13 @@ class BookSeeder extends Seeder
                     return \App\User::inRandomOrder()->first()->id;
                 }
             ]);
+            $languageIds = array_map(function ($language){
+                return $language->id;
+            }
+            ,$languages);
+
+            $createdBook->languages()->sync($languageIds);
+
             $createdBook->authors()->attach($author);
         }
     }

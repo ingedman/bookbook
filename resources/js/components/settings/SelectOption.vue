@@ -85,14 +85,6 @@
             },
             addItem(){
                 this.items.push('')
-
-                // if(this.option.type === 'select'){
-                // this.items.push({
-                //     id:'',
-                //     label:''
-                // })
-                // }else{
-                // }
             },
             updateItems(event){
                 this.items[event.index] = event.item;
@@ -105,7 +97,6 @@
                         [this.option.name]: this.items
                     },
                 }).then((res) => {
-                    console.log(res.data)
                     if (res.data.success){
                         this.tmpItems = this.items.slice()
                         this.editMode = false
@@ -127,6 +118,7 @@
             },
             select(e){
                 console.log(e)
+                // todo: clean this
             }
         },
         computed:{
@@ -141,8 +133,6 @@
                 }
             }
         },
-        mounted() {
-            // console.log(this.option.items.keys())
-        },
+
     }
 </script>

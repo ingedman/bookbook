@@ -32,7 +32,6 @@
                             'q': search,
                         }
                     }).then((res) => {
-                        console.log(res.data)
                         this.books = res.data
                         loading(false)
                     }).catch((err) => {
@@ -55,7 +54,6 @@
                             'q': search,
                         }
                     }).then((res) => {
-                        console.log(res.data)
                         this.books = res.data
                         loading(false)
 
