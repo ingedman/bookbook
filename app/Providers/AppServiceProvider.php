@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         User::observe(UserObserver::class);
-        \App\Search\Models::bootSearchable();
+//        \App\Search\Models::bootSearchable();
 
     }
 }
