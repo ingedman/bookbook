@@ -199,6 +199,7 @@ class LanguageSeeder extends Seeder
         ];
 
         foreach ($languages as $code => $language){
+
             factory(App\Language::class)->create([
                 'code' =>$code,
                 'name'=>$language

@@ -21,13 +21,13 @@ class DatabaseSeeder extends Seeder
             'email' => 'esl@m.com',
             'bio' => 'Full-stack web developer',
         ]);
-        factory(App\User::class, 100)->create();
+        factory(App\User::class, 20)->create();
 
 
         $this->call(BookSeeder::class);
 
 
-        factory(App\Review::class, 1000)->create([
+        factory(App\Review::class, 100)->create([
             'reviewer_id' => function () {
                 return \App\User::inRandomOrder()->first()->id;
             },
