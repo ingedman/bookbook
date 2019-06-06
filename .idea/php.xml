@@ -104,7 +104,6 @@
       <path value="$PROJECT_DIR$/vendor/stevebauman/purify" />
       <path value="$PROJECT_DIR$/vendor/laravel/scout" />
       <path value="$PROJECT_DIR$/vendor/algolia/algoliasearch-client-php" />
-      <path value="$PROJECT_DIR$/vendor/ammadeuss/laravel-html-dom-parser" />
       <path value="$PROJECT_DIR$/vendor/sunra/php-simple-html-dom-parser" />
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
       <path value="$PROJECT_DIR$/vendor/larapack/hooks" />
