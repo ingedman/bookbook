@@ -192,6 +192,8 @@ class Review extends Model
     {
         $text = '';
         $limit = 200;
+
+        return \Str::limit($this->{'pureContent'} , $limit);
         $parserItems = HTMLDomParser::str_get_html($this->{'pureContent'})->find('*');
 
         foreach ($parserItems as $htmlItem){
