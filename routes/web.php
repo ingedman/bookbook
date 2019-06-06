@@ -33,7 +33,9 @@ Route::get('authors/{author}/', 'AuthorController@show')->name('author');
 
 
 // users routes
-Route::get('users/{user}', 'UserController@profile')->name('user.profile');
+Route::get('users/{user}', 'UserController@profile')
+    ->where('user','[0-9]+')
+    ->name('user.profile');
 Route::get('profile', 'UserController@ownProfile')->name('own-profile');
 Route::get('followers', 'UserController@followers')->name('followers');
 Route::get('following', 'UserController@following')->name('following');
@@ -90,7 +92,9 @@ Route::get('comments/{comment}/dislike', 'ReactionController@dislikeComment')->n
 
 // Reports routes
 
-Route::post('reports/review/{review}', 'ReportController@reportReview')->name('review.report');
+Route::post('reports/review/{review}', 'ReportController@reportReview')
+    ->name('review.report')
+    ->where('review','[0-9]+');
 Route::post('reports/user/{user}', 'ReportController@reportUser')->name('user.report');
 Route::post('reports/comment/{comment}', 'ReportController@reportComment')->name('comment.report');
 Route::post('reports/book/{book}', 'ReportController@reportBook')->name('book.report');
