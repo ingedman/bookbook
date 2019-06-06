@@ -72,10 +72,7 @@ class SearchController extends Controller
 
                 $q = $request->input('q');
 //
-                $books = Book::search($q)->take(3)->get();
-
-                    dd($books);
-                    $books->map(function ($item) {
+                $books = Book::search($q)->take(3)->get()->map(function ($item) {
                     return [
                         'id' => $item->{'id'},
                         'url' => route('book', $item->{'slug'}),
