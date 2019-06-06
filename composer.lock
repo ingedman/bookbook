@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c6403e2bfa6441c77ab8028946f8e76",
+    "content-hash": "32a94574e9c0430f5561cd7f1cd9f6f6",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -151,60 +151,6 @@
                 "search"
             ],
             "time": "2019-03-07T12:29:20+00:00"
-        },
-        {
-            "name": "ammadeuss/laravel-html-dom-parser",
-            "version": "v1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ammadeuss/laravel-html-dom-parser.git",
-                "reference": "2dcb4f6ec7fc5cf9a7a8cdc9410f95f2ddc5eee1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ammadeuss/laravel-html-dom-parser/zipball/2dcb4f6ec7fc5cf9a7a8cdc9410f95f2ddc5eee1",
-                "reference": "2dcb4f6ec7fc5cf9a7a8cdc9410f95f2ddc5eee1",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^5.2",
-                "php": ">=5.6",
-                "sunra/php-simple-html-dom-parser": "^1.5"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Ammadeuss\\LaravelHtmlDomParser\\ServiceProvider"
-                    ],
-                    "aliases": {
-                        "HTMLDomParser": "Ammadeuss\\LaravelHtmlDomParser\\Facade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Ammadeuss\\LaravelHtmlDomParser\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ammadeuss Raducan",
-                    "email": "raducan@ammadeuss.ro"
-                }
-            ],
-            "description": "Laravel wrapper for the PHP Simple HTML DOM Parser package",
-            "homepage": "https://github.com/ammadeuss/html-dom-parser",
-            "keywords": [
-                "dom parser",
-                "html dom parser",
-                "laravel"
-            ],
-            "time": "2018-03-06T10:55:36+00:00"
         },
         {
             "name": "arrilot/laravel-widgets",
@@ -5034,16 +4980,16 @@
         },
         {
             "name": "tcg/voyager",
-            "version": "v1.2.4",
+            "version": "v1.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/the-control-group/voyager.git",
-                "reference": "5f34bae1eeef41a5ca8b9cf916c63b17e190c3a7"
+                "reference": "b0981fd7a5bb52e0f4f8d0627e8ff048b21651c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/5f34bae1eeef41a5ca8b9cf916c63b17e190c3a7",
-                "reference": "5f34bae1eeef41a5ca8b9cf916c63b17e190c3a7",
+                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/b0981fd7a5bb52e0f4f8d0627e8ff048b21651c9",
+                "reference": "b0981fd7a5bb52e0f4f8d0627e8ff048b21651c9",
                 "shasum": ""
             },
             "require": {
@@ -5095,7 +5041,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2019-05-31T21:21:13+00:00"
+            "time": "2019-06-06T11:16:17+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
