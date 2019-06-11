@@ -18,7 +18,6 @@
         "laravel/framework": "5.8.*",
         "laravel/scout": "^7.1",
         "laravel/socialite": "^4.1",
-        "laravel/telescope": "^2.0",
         "laravel/tinker": "^1.0",
         "pusher/pusher-php-server": "^3.4",
         "stevebauman/purify": "2.0.*",
@@ -41,7 +40,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": ["TelescopeServiceProvider"]
         }
     },
     "autoload": {
