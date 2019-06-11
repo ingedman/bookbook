@@ -58,13 +58,6 @@ class SearchController extends Controller
      */
     public function all(Request $request)
     {
-        // todo: handle algolia curl timeout error
-//        $config = SearchConfig::create(env('ALGOLIA_APP_ID', ''), env('ALGOLIA_SECRET', ''));
-//        $config->setConnectTimeout(10);
-//        $config->setReadTimeout(30);
-//        $config->setWriteTimeout(30);
-//        SearchClient::createWithConfig($config);
-
         if ($request->has('q') and strlen($request->input('q')) > 1) {
 
             return retry(5, function () use ($request) {
@@ -95,22 +88,6 @@ class SearchController extends Controller
                         'text' => $item->{'name'}
                     ];
                 });
-
-//                $models = \App\Search\Models::search($q)->get()->toArray();
-//                return response()->json(['books' => $models]);
-//dd($models);
-//                $books = array_filter($models, function ($model){
-//                    return get_class($model) === 'App\Book';
-//                });
-//
-//                $users = array_filter($models, function ($model){
-//                    return get_class($model) === 'App\User';
-//                });
-//
-//                $reviews = array_filter($models, function ($model){
-//                    return get_class($model) === 'App\Review';
-//                });
-
 
                 return response()->json([
                     'books' => $books,

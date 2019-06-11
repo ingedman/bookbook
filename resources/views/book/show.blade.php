@@ -97,8 +97,7 @@
                 @forelse($reviews as $review)
 
                     {{-- single review card --}}
-                    <div class=" d-flex">
-                        <div class="card flex-grow-1">
+                        <div class="card mb-2">
                             <div class="card-body ">
                                 <a class="no-underline" href="{{route('review',$review->{'slug'})}}">
                                     <h5 class="card-title mb-0">{{$review->title}}</h5>
@@ -122,7 +121,6 @@
 
                             </div>
                         </div>
-                    </div>
 
 
                     {{-- End of single review card --}}

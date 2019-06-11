@@ -46,26 +46,24 @@
             <div class="pt-3">
                 <div class=" ">
                     @foreach($similarReviews as $similarReview)
-                        <div class=" d-flex">
-                            <div class="card flex-grow-1">
-                                <div class="card-body ">
-                                    <a class="no-underline" href="{{ route('review',$similarReview->{'slug'}) }}">
-                                        <h5 class="card-title mb-0">{{$similarReview->title}}</h5>
-                                    </a>
-                                    <small class="ml-2 text-muted">About <a
-                                                href="{{ route('book',$similarReview->book->slug)}}"><strong>{{$similarReview->book->title}}</strong></a>
-                                    </small>
-                                    <a class="no-underline" href="{{ route('review',$similarReview->{'slug'}) }}">
-                                        <p class="card-text mt-2">{!! $similarReview->{'preview'} !!}</p>
-                                    </a>
-                                </div>
-                                <div class="card-body pb-0 flex-grow-0">
-                                    {{-- Actions section --}}
-                                    <review-card-controls index="{{$similarReview->id}}"
-                                                          :review="{{$similarReview->controlsJson}}"></review-card-controls>
-                                    {{-- End of Actions section --}}
+                        <div class="card mb-2">
+                            <div class="card-body ">
+                                <a class="no-underline" href="{{ route('review',$similarReview->{'slug'}) }}">
+                                    <h5 class="card-title mb-0">{{$similarReview->title}}</h5>
+                                </a>
+                                <small class="ml-2 text-muted">About <a
+                                            href="{{ route('book',$similarReview->book->slug)}}"><strong>{{$similarReview->book->title}}</strong></a>
+                                </small>
+                                <a class="no-underline" href="{{ route('review',$similarReview->{'slug'}) }}">
+                                    <p class="card-text mt-2">{!! $similarReview->{'preview'} !!}</p>
+                                </a>
+                            </div>
+                            <div class="card-body pb-0 flex-grow-0">
+                                {{-- Actions section --}}
+                                <review-card-controls index="{{$similarReview->id}}"
+                                                      :review="{{$similarReview->controlsJson}}"></review-card-controls>
+                                {{-- End of Actions section --}}
 
-                                </div>
                             </div>
                         </div>
                     @endforeach

@@ -58,8 +58,7 @@
             <div class="">
                 @forelse($books as $book)
                     {{-- single book card --}}
-                    <div class="d-flex">
-                        <div class="card flex-grow-1">
+                        <div class="card mb-2">
                             <div class="card-body ">
                                 <a href="{{ route('book', $book->{'slug'}) }}" class="no-underline">
                                     <h5 class="card-title mb-3">{{ $book->{'title'} }}</h5>
@@ -100,7 +99,6 @@
                                 {{-- End of book card actions --}}
                             </div>
                         </div>
-                    </div>
                     {{-- End of single book card --}}
                 @empty
                     This Author has no books.
