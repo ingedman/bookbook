@@ -9,7 +9,7 @@
                    autocomplete="off"
                    v-model="searchText"
                    @focus="showResults"
-                   @blur="focused = false"
+                   @blur="hideResults"
 
             >
         </div>
@@ -90,7 +90,14 @@
             showResults() {
                 this.focused = true
 
-            }
+            },
+            hideResults() {
+                const _this = this
+                setTimeout(function () {
+                _this.focused = false
+
+                },150)
+            },
 
         },
         watch: {
