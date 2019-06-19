@@ -30,31 +30,61 @@ class Book extends Model
         ];
     }
 
+    /**
+     * Get the reviews of the specified book.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function reviews()
     {
         return $this->hasMany(Review::class);
     }
 
+    /**
+     * Get the authors of the specified book.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function authors()
     {
         return $this->belongsToMany(Author::class);
     }
 
+    /**
+     * Get the poster of the specified book.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function poster()
     {
         return $this->belongsTo(User::class, 'poster_id');
     }
 
+    /**
+     * Get the reports of the specified book.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function reports()
     {
         return $this->morphMany(Report::class, 'reportable');
     }
 
+    /**
+     * Get the languages in which the book is available.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
     public function languages()
     {
         return $this->morphToMany(Language::class, 'languageable')->withPivot('is_primary');
     }
 
+    /**
+     * Get the language in which the book was originally written.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
     public function nativeLanguage()
     {
 
@@ -63,16 +93,31 @@ class Book extends Model
             ->wherePivot('is_primary', true);
     }
 
+    /**
+     * Get the likes of the specified book.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function likes()
     {
         return $this->morphMany(Reaction::class, 'reactionable')->where('is_like', '=', true);
     }
 
+    /**
+     * Get the dislikes of the specified book.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function dislikes()
     {
         return $this->morphMany(Reaction::class, 'reactionable')->where('is_like', '=', false);
     }
 
+    /**
+     * Clean the title attribute before updating it.
+     *
+     * @param $val
+     */
     public function setTitleAttribute($val)
     {
         $this->attributes['title'] = trim($val);

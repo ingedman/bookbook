@@ -79,6 +79,8 @@ class User extends \TCG\Voyager\Models\User
     }
 
     /**
+     * Get the reviews published by the specified user.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function reviews()
@@ -87,6 +89,8 @@ class User extends \TCG\Voyager\Models\User
     }
 
     /**
+     * Get the comments published by the specified user.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function comments()
@@ -95,6 +99,8 @@ class User extends \TCG\Voyager\Models\User
     }
 
     /**
+     * Get the reactions by the specified user.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function reactions()
@@ -103,6 +109,8 @@ class User extends \TCG\Voyager\Models\User
     }
 
     /**
+     * Get the books posted by the specified user.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function postedBooks()
@@ -112,6 +120,8 @@ class User extends \TCG\Voyager\Models\User
     }
 
     /**
+     * Get the users that follow the specified user.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function followers()
@@ -120,6 +130,8 @@ class User extends \TCG\Voyager\Models\User
     }
 
     /**
+     * Get the users that are followed by the specified user.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function followings()
@@ -128,6 +140,8 @@ class User extends \TCG\Voyager\Models\User
     }
 
     /**
+     * Get the reviews that was added to the user's readlist
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function readList()
@@ -136,6 +150,8 @@ class User extends \TCG\Voyager\Models\User
     }
 
     /**
+     * Get latest reviews from the followed users.
+     *
      * @return mixed
      */
     public function scopeFeed()
@@ -172,10 +188,6 @@ class User extends \TCG\Voyager\Models\User
         return $this->{'followers'}->contains(\Auth::user());
     }
 
-//    public function setPhotoAttribute(string $path){
-//        $this->{'photo'} = $path;
-//    }
-
     /**
      * @return mixed|string
      */
@@ -185,12 +197,4 @@ class User extends \TCG\Voyager\Models\User
         }
         return \Storage::url($this->{'avatar'});
     }
-
-
-//    public function delete()
-//    {
-//
-//    }
-
-
 }

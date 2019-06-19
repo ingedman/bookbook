@@ -12,6 +12,8 @@ class Report extends Model
     protected $fillable = ['content','reporter_id'];
 
     /**
+     * Get the model that was reported on.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function reportable()
@@ -20,6 +22,8 @@ class Report extends Model
     }
 
     /**
+     * Get the user that added the report.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function reporter()

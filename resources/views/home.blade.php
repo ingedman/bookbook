@@ -5,16 +5,20 @@
     {{-- main feed section --}}
 
 
+    @if(count($feed))
+        @foreach($feed as $feedItem)
 
-    @foreach($feed as $feedItem)
 
+            @include('partials.review_card_1',['review'=>$feedItem])
 
-        @include('partials.review_card_1',['review'=>$feedItem])
+        @endforeach
+        <div class="d-flex justify-content-center my-4">
+            {{ $feed->links() }}
+        </div>
+    @else
+        You don't have any reviews in your feed. Why don't you follow someone!
+    @endif
 
-    @endforeach
-    <div class="d-flex justify-content-center my-4">
-        {{ $feed->links() }}
-    </div>
     {{-- End of main feed section --}}
 @endsection
 

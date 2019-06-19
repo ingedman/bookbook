@@ -10,7 +10,6 @@
                    v-model="searchText"
                    @focus="showResults"
                    @blur="hideResults"
-
             >
         </div>
         <div class="list-group position-absolute search-results w-100 mt-2 bg-white" v-if="showed">

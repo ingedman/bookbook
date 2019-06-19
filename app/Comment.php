@@ -13,34 +13,71 @@ class Comment extends Model
     protected $cast = [
         'is_flagged'=>'boolean',
     ];
-    protected $touches = ['commentable'];
 
+
+    /**
+     * Get the commented on model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
     public function commentable()
     {
         return $this->morphTo();
     }
+
+    /**
+     * Get parent comment of a specified reply.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function parent(){
         return $this->belongsTo(Comment::class,'parent_id');
     }
+
+    /**
+     * Get the replies of the specified comment.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function replies(){
         return $this->hasMany(Comment::class,'parent_id');
     }
+
+    /**
+     * Get the reports of the specified comment.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function reports(){
         return $this->morphMany(Report::class, 'reportable');
     }
+
+    /**
+     * Get the commenter of the specified comment.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function commenter(){
         return $this->belongsTo(User::class,'user_id');
     }
+
+    /**
+     * Get likes of the specified Comment.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function likes(){
         return $this->morphMany(Reaction::class,'reactionable')->where('is_like','=',true);
     }
+
+    /**
+     * Get dislikes of the specified Comment.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function dislikes(){
         return $this->morphMany(Reaction::class,'reactionable')->where('is_like','=',false);
     }
-//    public function getRepliesCountAttribute()
-//    {
-//        return count($this->replies);
-//    }
 
     /**
      * get info array to use in vue card controls component

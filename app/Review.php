@@ -107,23 +107,6 @@ class Review extends Model
         return $this->morphMany(Reaction::class, 'reactionable')->where('is_like', '=', false);
     }
 
-//    /**
-//     * Get the total number of comment of a review.
-//     *
-//     * @return int|mixed
-//     */
-//    public function getCommentsCountAttribute()
-//    {
-//        $comments = $this->comments()->withCount('replies')->get();
-//        if (count($comments) > 0) {
-//            return $comments->reduce(function ($carry, $item) {
-//                return $carry + $item->replies_count + 1;
-//            });
-//        } else {
-//            return 0;
-//        }
-//    }
-
     /**
      * get json object to use in vue card controls component
      *
@@ -193,9 +176,7 @@ class Review extends Model
         $text = '';
         $limit = 200;
 
-
         $parserItems = HTMLDomParser::str_get_html($this->{'pureContent'})->find('*');
-//        return \Str::limit($this->{'pureContent'} , $limit);
 
         foreach ($parserItems as $htmlItem){
             $text = $text . \Str::limit($htmlItem->plaintext , $limit - strlen($text)) . '<br>';
@@ -208,6 +189,7 @@ class Review extends Model
         }
         return $text;
     }
+
     /**
      * Splits the given value.
      *
@@ -218,6 +200,7 @@ class Review extends Model
     {
         return explode('. ', $value);
     }
+
     /**
      * Get the indexable data array for the model.
      *
@@ -227,7 +210,6 @@ class Review extends Model
     {
         $array = $this->toArray();
 
-//        dd($array);
         // Applies Scout Extended default transformations:
         $array = $this->transform($array);
 
